@@ -1,4 +1,5 @@
 import SpriteKit
+import PEMTmxMap
 
 let LayerNameScreenLayout = "ScreenLayout"
 let LayerNameTerrain = "Terrain"
@@ -75,8 +76,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var doorOpened = false
     
     private var door: SKSpriteNode?
-    private var spawnLayer: PEMTmxTileLayer?
-    private var terrainLayer: PEMTmxTileLayer?
+//    private var spawnLayer: PEMTmxTileLayer?
+//    private var terrainLayer: PEMTmxTileLayer?
     
     // MARK: - Init
     
