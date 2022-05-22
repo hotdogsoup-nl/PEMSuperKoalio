@@ -42,8 +42,8 @@ class Player : SKSpriteNode {
     }
     
     func update(_ delta: TimeInterval) {
-        let gravityStep = CGPointMultiplyScalar(gravity, delta)
-        velocity = CGPointAdd(velocity, gravityStep)
+        let gravityStep = gravity.multiplyScalar(delta)
+        velocity = velocity.add(gravityStep)
         
         if isDead {
             velocity = CGPoint(x: velocity.x * movementDecelerationFactor, y: velocity.y)
@@ -51,7 +51,7 @@ class Player : SKSpriteNode {
 
         if shouldJump && onGround {
             if !isDead {
-                velocity = CGPointAdd(velocity, jumpForce)
+                velocity = velocity.add(jumpForce)
                 onGround = false
             } else {
                 velocity = CGPoint(x: velocity.x, y: 0)
@@ -80,15 +80,15 @@ class Player : SKSpriteNode {
             texture = texture_0
         }
         
-        let velocityStep = CGPointMultiplyScalar(velocity, delta)
-        desiredPosition = CGPointAdd(position, velocityStep)
+        let velocityStep = velocity.multiplyScalar(delta)
+        desiredPosition = position.add(velocityStep)
     }
     
     func collisionBoundingBox() -> CGRect {
         let offset = CGPoint(x: 2.0, y: 2.0)
         let clippingHeight = gameTileSize.height - size.height
         let boundingBox = CGRect(x: frame.origin.x + offset.x * 0.5, y: frame.origin.y - clippingHeight * 0.25 - offset.y, width: size.width - offset.x, height: size.height + clippingHeight)
-        let diff = CGPointSubtract(desiredPosition, position);
+        let diff = desiredPosition.subtract(position);
         return boundingBox.offsetBy(dx: diff.x, dy: diff.y);
     }
     
