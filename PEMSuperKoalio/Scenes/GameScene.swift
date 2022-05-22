@@ -1,5 +1,5 @@
 import SpriteKit
-import PEMTmxMap
+import PEMTileMap
 
 let LayerNameScreenLayout = "ScreenLayout"
 let LayerNameTerrain = "Terrain"
@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     var gameSceneDelegate: GameSceneDelegate?
-    private var map: PEMTmxMap?
+    private var map: PEMTileMap?
     private var buttonClicked = false
     private var currentMapNameLabel: SKLabelNode?
     private var currentMapIndex = Int(0)
@@ -132,7 +132,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let mapName = maps[currentMapIndex]
 
-        if let newMap = PEMTmxMap(mapName: mapName, showObjectGroups: true) {
+        if let newMap = PEMTileMap(mapName: mapName, showObjectGroups: true) {
             map = newMap
 
             if newMap.backgroundColor != nil {

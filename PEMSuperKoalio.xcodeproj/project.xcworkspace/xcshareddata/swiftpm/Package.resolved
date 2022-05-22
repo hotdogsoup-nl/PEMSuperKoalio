@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "pemtmxmap",
+      "identity" : "pemtilemap",
       "kind" : "remoteSourceControl",
-      "location" : "https://gitlab.com/mrzystem/pemtmxmap.git",
+      "location" : "https://gitlab.com/mrzystem/pemtilemap.git",
       "state" : {
         "branch" : "develop",
-        "revision" : "8a293de969c94cb15408a08f990e7bf055a89c28"
+        "revision" : "5e33df9ff34e07de701e3866a2d59a23e45007ec"
       }
     }
   ],
