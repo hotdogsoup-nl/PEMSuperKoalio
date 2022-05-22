@@ -49,4 +49,14 @@ public class GameController: NSObject, GameSceneDelegate {
     
     func levelCompleted() {
     }
+    
+    // MARK: - View
+    
+    #if os(macOS)
+
+    public func windowDidResize() {
+        currentScene?.didChangeSize()
+    }
+
+    #endif
 }

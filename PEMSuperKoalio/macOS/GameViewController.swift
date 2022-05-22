@@ -1,7 +1,7 @@
 import SpriteKit
 
-class GameViewController: NSViewController {
-    let gameController = GameController()
+class GameViewController: NSViewController, NSWindowDelegate {
+    private var gameController = GameController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,11 @@ class GameViewController: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
+        view.window?.delegate = self
         view.window?.aspectRatio = CGSize(width: 1200, height: 800)
+    }
+    
+    func windowDidResize(_ notification: Notification) {
+        gameController.windowDidResize()
     }
 }

@@ -175,8 +175,8 @@
 				207D3DB02812AD5700FC4C77 /* Assets.xcassets */,
 				20CA158128181D8700797A7C /* Colors.xcassets */,
 				207D3DB72812AD5700FC4C77 /* iOS */,
-				207D3DC72812AD5700FC4C77 /* macOS */,
 				2037A5D428258C4900E13452 /* tvOS */,
+				207D3DC72812AD5700FC4C77 /* macOS */,
 			);
 			path = PEMSuperKoalio;
 			sourceTree = "<group>";
