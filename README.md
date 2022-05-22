@@ -25,6 +25,9 @@ This project is intended as educational, expanding upon Ray Wenderlichs original
 - [ ] input: keyboard and mouse
 - [ ] input: Apple TV remote controller
 - [ ] input: external game controllers
+  
+## License
+Licensed under the [MIT license](license.md).
 
 [tmx-map-url]:https://doc.mapeditor.org/en/stable/reference/tmx-map-format/#
 [tiled-url]:http://www.mapeditor.org
