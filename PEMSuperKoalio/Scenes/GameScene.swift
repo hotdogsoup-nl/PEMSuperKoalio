@@ -66,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func loadMap() {
-        if let newMap = PEMTileMap(mapName: "level1.tmx") {
+        if let newMap = PEMTileMap(mapName: "superkoalio.tmx") {
             map = newMap
 
             if newMap.backgroundColor != nil {
