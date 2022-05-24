@@ -31,5 +31,5 @@ Licensed under the [MIT license](license.md).
 
 [tmx-map-url]:https://doc.mapeditor.org/en/stable/reference/tmx-map-format/#
 [tiled-url]:http://www.mapeditor.org
-[pemtilemap-url]:https://github.com/p-edge-media/PEMTileMap
+[pemtilemap-url]:https://github.com/hotdogsoup-nl/PEMTileMap
 [superkoalio-url]:https://www.raywenderlich.com/2554-sprite-kit-tutorial-how-to-make-a-platform-game-like-super-mario-brothers-part-1
