@@ -77,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             cameraNode.zPosition = newMap.highestZPosition + 1
             newMap.cameraNode = cameraNode
-            newMap.position = CGPoint(x: newMap.mapSizeInPoints.width * -0.5, y: newMap.mapSizeInPoints.height * -0.5)
+            newMap.position = CGPoint(x: newMap.mapSizeInPoints().width * -0.5, y: newMap.mapSizeInPoints().height * -0.5)
             
             addChild(newMap)
             
