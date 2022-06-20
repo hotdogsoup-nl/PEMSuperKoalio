@@ -69,7 +69,6 @@
 		2037A5E028258C4900E13452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2037A5E528258C4A00E13452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		204662DF281BE8CF00F3635B /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
-		205C86332823D8D800360A29 /* Objc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objc-Bridging-Header.h"; sourceTree = "<group>"; };
 		207D3DAF2812AD5600FC4C77 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		207D3DB02812AD5700FC4C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		207D3DB52812AD5700FC4C77 /* PEMTMXMapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMTMXMapDemo.app; path = PEMSuperKoalio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +128,6 @@
 		201D43BA2839428100125433 /* PEMSuperKoalio */ = {
 			isa = PBXGroup;
 			children = (
-				205C86332823D8D800360A29 /* Objc-Bridging-Header.h */,
 				20CA139C2818160800797A7C /* Controller */,
 				204662DF281BE8CF00F3635B /* Define.swift */,
 				2014E98A28169C5300A12253 /* Helper */,
@@ -592,7 +590,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.p-edge.pemsuperkoalio";
 				PRODUCT_NAME = PEMSuperKoalio;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "PEMSuperKoalio/Objc-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TVOS_DEPLOYMENT_TARGET = 13.4;
 			};
@@ -650,7 +647,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.p-edge.pemsuperkoalio";
 				PRODUCT_NAME = PEMSuperKoalio;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "PEMSuperKoalio/Objc-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TVOS_DEPLOYMENT_TARGET = 13.4;
 			};
