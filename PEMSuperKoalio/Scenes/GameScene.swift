@@ -80,6 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             walls = newMap.layerNamed("walls") as? PEMTileLayer
             hazards = newMap.layerNamed("hazards") as? PEMTileLayer
             
+            newMap.moveCamera(sceneSize: size, zoomMode: .aspectFill, viewMode: .bottomRight)
+            newMap.moveCamera(sceneSize: size, zoomMode: .aspectFill, viewMode: .bottomLeft, factor: 1, duration: 2.5, timingMode: .easeInEaseOut)
         }
     }
 
