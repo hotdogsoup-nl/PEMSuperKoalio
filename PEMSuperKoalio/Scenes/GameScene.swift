@@ -80,6 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newMap.position = CGPoint(x: newMap.mapSizeInPoints.width * -0.5, y: newMap.mapSizeInPoints.height * -0.5)
             
             addChild(newMap)
+            
+            newMap.moveCamera(sceneSize: size, zoomMode: .aspectFill, viewMode: .bottomLeft, factor: 1, duration: 0.5, timingMode: .easeInEaseOut)
         }
     }
 
