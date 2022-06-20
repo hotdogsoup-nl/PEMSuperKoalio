@@ -8,7 +8,7 @@
 
 **PEMSuperKoalio** is a Swift 5 version of Ray Wenderlichs SpriteKit [SuperKoalio game][superkoalio-url]. It uses the [PEMTileMap][pemtilemap-url] framework to generate the game map and supports iOS, macOS and tvOS.
 
-The SuperKoalio demo project helped me to get into games programming. It was originally made in Objective-C with the `Cocos2D` framework and later a `SpriteKit` version ws made. I decided to make a Swift version that uses [PEMTileMap][pemtmxmap-url] instead of `JSTileMap` for the map generation.
+The SuperKoalio demo project helped me to get into games programming. It was originally made in Objective-C with the `Cocos2D` framework and later a `SpriteKit` version ws made. I decided to make a Swift version that uses [PEMTileMap][pemtilemap-url] instead of `JSTileMap` for the map generation.
 
 The map format used is still the original TMX Map file. [TMX Map files][tmx-map-url] can be created and edited with [Tiled][tiled-url].
 
@@ -31,5 +31,5 @@ Licensed under the [MIT license](license.md).
 
 [tmx-map-url]:https://doc.mapeditor.org/en/stable/reference/tmx-map-format/#
 [tiled-url]:http://www.mapeditor.org
-[pemtilemap-url]:https://github.com/p-edge-media/PEMTileMap
+[pemtilemap-url]:https://github.com/hotdogsoup-nl/PEMTileMap
 [superkoalio-url]:https://www.raywenderlich.com/2554-sprite-kit-tutorial-how-to-make-a-platform-game-like-super-mario-brothers-part-1
