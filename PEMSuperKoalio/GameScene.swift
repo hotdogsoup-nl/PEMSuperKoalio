@@ -55,10 +55,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         loadMap()
     }
     
-    deinit {
-        print("deinit: \(self)")
-    }
-    
     private func loadMap() {
         if let newMap = PEMTileMap(mapName: "superkoalio.tmx") {
             map = newMap

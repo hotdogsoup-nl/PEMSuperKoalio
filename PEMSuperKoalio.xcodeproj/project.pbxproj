@@ -12,8 +12,6 @@
 		2000FD46282BDB7400699DAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2000FD43282BDB7400699DAF /* README.md */; };
 		2014E98428168E6100A12253 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98328168E6100A12253 /* Player.swift */; };
 		2014E98528168E6100A12253 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98328168E6100A12253 /* Player.swift */; };
-		2014E98C2816B50800A12253 /* ScreenLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98B2816B50800A12253 /* ScreenLayoutHelper.swift */; };
-		2014E98D2816B50800A12253 /* ScreenLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98B2816B50800A12253 /* ScreenLayoutHelper.swift */; };
 		2037A5D628258C4900E13452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037A5D528258C4900E13452 /* AppDelegate.swift */; };
 		2037A5DE28258C4900E13452 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037A5DD28258C4900E13452 /* GameViewController.swift */; };
 		2037A5E128258C4900E13452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2037A5DF28258C4900E13452 /* Main.storyboard */; };
@@ -22,7 +20,6 @@
 		2037A5EC28258DA000E13452 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207D3DAF2812AD5600FC4C77 /* GameScene.swift */; };
 		2037A5ED28258DA300E13452 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98328168E6100A12253 /* Player.swift */; };
 		2037A5EE28258DA500E13452 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA139D2818168600797A7C /* GameController.swift */; };
-		2037A5F028258DAA00E13452 /* ScreenLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98B2816B50800A12253 /* ScreenLayoutHelper.swift */; };
 		206587DB286086EB00DED69C /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 206587DA286086EB00DED69C /* sprites.atlas */; };
 		206587DC286086EB00DED69C /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 206587DA286086EB00DED69C /* sprites.atlas */; };
 		206587DD286086EB00DED69C /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 206587DA286086EB00DED69C /* sprites.atlas */; };
@@ -59,8 +56,7 @@
 /* Begin PBXFileReference section */
 		2000FD43282BDB7400699DAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2014E98328168E6100A12253 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		2014E98B2816B50800A12253 /* ScreenLayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLayoutHelper.swift; sourceTree = "<group>"; };
-		2037A5D328258C4800E13452 /* PEMTMXDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMTMXDemo.app; path = PEMSuperKoalio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2037A5D328258C4800E13452 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMSuperKoalio.app; path = "/Volumes/Data HD/P-Edge Documents/Devving stuff that matters/Apps/PEMSuperKoalio/build/Debug-appletvos/PEMSuperKoalio.app"; sourceTree = "<absolute>"; };
 		2037A5D528258C4900E13452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2037A5DD28258C4900E13452 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2037A5E028258C4900E13452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,12 +64,12 @@
 		206587DA286086EB00DED69C /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 		207D3DAF2812AD5600FC4C77 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		207D3DB02812AD5700FC4C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		207D3DB52812AD5700FC4C77 /* PEMTMXMapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMTMXMapDemo.app; path = PEMSuperKoalio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		207D3DB52812AD5700FC4C77 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMSuperKoalio.app; path = "/Volumes/Data HD/P-Edge Documents/Devving stuff that matters/Apps/PEMSuperKoalio/build/Debug-iphoneos/PEMSuperKoalio.app"; sourceTree = "<absolute>"; };
 		207D3DB82812AD5700FC4C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		207D3DBA2812AD5700FC4C77 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		207D3DBD2812AD5700FC4C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		207D3DC02812AD5700FC4C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		207D3DC62812AD5700FC4C77 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMSuperKoalio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		207D3DC62812AD5700FC4C77 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMSuperKoalio.app; path = "/Volumes/Data HD/P-Edge Documents/Devving stuff that matters/Apps/PEMSuperKoalio/build/Debug/PEMSuperKoalio.app"; sourceTree = "<absolute>"; };
 		207D3DC82812AD5700FC4C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		207D3DCD2812AD5700FC4C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20AC1FFF283CFF5E00BE83F0 /* superkoalio.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = superkoalio.tmx; sourceTree = "<group>"; };
@@ -112,22 +108,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2014E98A28169C5300A12253 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				20EB0333283A7189000233FD /* CG+Extensions.swift */,
-				2014E98B2816B50800A12253 /* ScreenLayoutHelper.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		201D43BA2839428100125433 /* PEMSuperKoalio */ = {
 			isa = PBXGroup;
 			children = (
-				2014E98A28169C5300A12253 /* Helper */,
-				20C9979028227A3400EEBDE0 /* Objects */,
-				20C9979428227A7D00EEBDE0 /* Scenes */,
-				20CA139C2818160800797A7C /* Controller */,
+				20EB0333283A7189000233FD /* CG+Extensions.swift */,
+				2014E98328168E6100A12253 /* Player.swift */,
+				207D3DAF2812AD5600FC4C77 /* GameScene.swift */,
+				20CA139D2818168600797A7C /* GameController.swift */,
 				20CA13A028181D5000797A7C /* Assets */,
 				207D3DB02812AD5700FC4C77 /* Assets.xcassets */,
 				207D3DB72812AD5700FC4C77 /* iOS */,
@@ -160,19 +147,8 @@
 			children = (
 				2000FD43282BDB7400699DAF /* README.md */,
 				201D43BA2839428100125433 /* PEMSuperKoalio */,
-				207D3DB62812AD5700FC4C77 /* Products */,
 				2074E41F28181EDD002137A7 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		207D3DB62812AD5700FC4C77 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				207D3DB52812AD5700FC4C77 /* PEMTMXMapDemo.app */,
-				207D3DC62812AD5700FC4C77 /* PEMSuperKoalio.app */,
-				2037A5D328258C4800E13452 /* PEMTMXDemo.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		207D3DB72812AD5700FC4C77 /* iOS */ = {
@@ -194,30 +170,6 @@
 				207D3DCC2812AD5700FC4C77 /* Main.storyboard */,
 			);
 			path = macOS;
-			sourceTree = "<group>";
-		};
-		20C9979028227A3400EEBDE0 /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				2014E98328168E6100A12253 /* Player.swift */,
-			);
-			path = Objects;
-			sourceTree = "<group>";
-		};
-		20C9979428227A7D00EEBDE0 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				207D3DAF2812AD5600FC4C77 /* GameScene.swift */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		20CA139C2818160800797A7C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				20CA139D2818168600797A7C /* GameController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		20CA13A028181D5000797A7C /* Assets */ = {
@@ -251,7 +203,7 @@
 				20A71DA2283A138C00100B1C /* PEMTileMap */,
 			);
 			productName = pemtmxdemo;
-			productReference = 2037A5D328258C4800E13452 /* PEMTMXDemo.app */;
+			productReference = 2037A5D328258C4800E13452 /* PEMSuperKoalio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		207D3DB42812AD5700FC4C77 /* iOS version */ = {
@@ -271,7 +223,7 @@
 				20A71D9E283A137300100B1C /* PEMTileMap */,
 			);
 			productName = "Dotty The Kangaroo iOS";
-			productReference = 207D3DB52812AD5700FC4C77 /* PEMTMXMapDemo.app */;
+			productReference = 207D3DB52812AD5700FC4C77 /* PEMSuperKoalio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		207D3DC52812AD5700FC4C77 /* macOS version */ = {
@@ -327,7 +279,7 @@
 			packageReferences = (
 				20A71D9D283A137300100B1C /* XCRemoteSwiftPackageReference "pemtilemap" */,
 			);
-			productRefGroup = 207D3DB62812AD5700FC4C77 /* Products */;
+			productRefGroup = 207D3DA72812AD5600FC4C77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -390,7 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2037A5F028258DAA00E13452 /* ScreenLayoutHelper.swift in Sources */,
 				2037A5EE28258DA500E13452 /* GameController.swift in Sources */,
 				2037A5DE28258C4900E13452 /* GameViewController.swift in Sources */,
 				20EB0336283A7189000233FD /* CG+Extensions.swift in Sources */,
@@ -404,7 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2014E98C2816B50800A12253 /* ScreenLayoutHelper.swift in Sources */,
 				2014E98428168E6100A12253 /* Player.swift in Sources */,
 				20EB0334283A7189000233FD /* CG+Extensions.swift in Sources */,
 				207D3DD42812AD5700FC4C77 /* GameScene.swift in Sources */,
@@ -418,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2014E98D2816B50800A12253 /* ScreenLayoutHelper.swift in Sources */,
 				2014E98528168E6100A12253 /* Player.swift in Sources */,
 				20EB0335283A7189000233FD /* CG+Extensions.swift in Sources */,
 				207D3DD52812AD5700FC4C77 /* GameScene.swift in Sources */,

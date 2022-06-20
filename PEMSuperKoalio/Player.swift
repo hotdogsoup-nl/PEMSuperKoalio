@@ -9,6 +9,10 @@ enum MovementDirection {
     case right
 }
 
+let gravity = CGPoint(x: 0, y: -700)
+let playerSize = CGSize(width: 16, height: 24)
+let gameTileSize = CGSize(width: 16, height: 16)
+
 class Player : SKSpriteNode {
     var isDead = false
     var onGround = false
@@ -72,5 +76,4 @@ class Player : SKSpriteNode {
         let diff = desiredPosition.subtract(position);
         return boundingBox.offsetBy(dx: diff.x, dy: diff.y);
     }
-    
 }
