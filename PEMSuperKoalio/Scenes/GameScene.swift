@@ -49,12 +49,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     private func startControl() {
         physicsWorld.contactDelegate = self
-        backgroundColor = SKColor(named: "Game-background")!
         camera = cameraNode
         addChild(cameraNode)
         
         loadMap()
-        addSpawnObjects()
     }
     
     deinit {
@@ -76,48 +74,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newMap.position = CGPoint(x: newMap.mapSizeInPoints().width * -0.5, y: newMap.mapSizeInPoints().height * -0.5)
             
             addChild(newMap)
+            newMap.moveCamera(sceneSize: size, zoomMode: .aspectFill, viewMode: .bottomLeft)
             
             walls = newMap.layerNamed("walls") as? PEMTileLayer
             hazards = newMap.layerNamed("hazards") as? PEMTileLayer
             
-            newMap.moveCamera(sceneSize: size, zoomMode: .aspectFill, viewMode: .bottomRight)
-            newMap.moveCamera(sceneSize: size, zoomMode: .aspectFill, viewMode: .bottomLeft, factor: 1, duration: 2.5, timingMode: .easeInEaseOut)
+            player = Player.newPlayer()
+            player?.position = newMap.position(tileCoords: CGPoint(x: 5, y: 14))
+            player?.zPosition = newMap.highestZPosition + 1
+            newMap.addChild(player!)
         }
     }
-
-    // MARK: - Spawn
-
-    private func addSpawnObjects() {
-//        for spawnTile in spawnLayer!.children {
-//            print("spawn object: ", spawnTile)
-            
-//            switch spawnTile.tileData.type {
-//            case SpawnTypePlayer:
-//                addPlayer(spawnTile)
-//                break
-//            default:
-//                break
-//            }
-//        }
-    }
-    
-//    private func addPlayer(_ tile : SKTile) {
-//        if player != nil {
-//            #if DEBUG
-//            print("Player already spawned")
-//            #endif
-//            return
-//        }
-//
-//        let coordinate = tileCoord(tile)
-//        let point = tilemap.pointForCoordinate(coord: coordinate)
-//
-//        player = Player.newPlayer()
-//        player?.position = CGPoint(x: point.x, y: point.y + (player!.size.height - tileSize.height) * 0.5)
-//        spawnLayer?.addChild(player!)
-//
-//        _ = spawnLayer?.removeTileAt(coord: coordinate)
-//    }
         
     // MARK: - Game cycle
         

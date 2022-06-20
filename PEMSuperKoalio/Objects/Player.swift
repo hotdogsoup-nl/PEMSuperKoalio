@@ -21,22 +21,9 @@ class Player : SKSpriteNode {
     private let movementForce = CGFloat(playerSize.width * 10)
     private let movementDecelerationFactor = CGFloat(0.9)
 
-    private var texture_0 : SKTexture?
-    private var texture_1 : SKTexture?
-
     class func newPlayer() -> Player {
-        let newPlayer = Player(color: .red, size: playerSize)
-        
-        if (!SHOW_PLAYER_AS_BOX) {
-            newPlayer.texture_0 = SKTexture(imageNamed: "Player_0")
-            newPlayer.texture_0?.filteringMode = .nearest
-
-            newPlayer.texture_1 = SKTexture(imageNamed: "Player_1")
-            newPlayer.texture_1?.filteringMode = .nearest
-        }
-        
-        newPlayer.texture = newPlayer.texture_0
-        newPlayer.zPosition = 1000
+        let newPlayer = Player(color: .clear, size: playerSize)
+        newPlayer.texture = SKTexture(imageNamed: "koalio_stand")
 
         return newPlayer
     }
@@ -72,12 +59,6 @@ class Player : SKSpriteNode {
                 xScale = 1.0
                 break
             }
-        }
-                
-        if velocity.y > 0 {
-            texture = texture_1
-        } else {
-            texture = texture_0
         }
         
         let velocityStep = velocity.multiplyScalar(delta)
