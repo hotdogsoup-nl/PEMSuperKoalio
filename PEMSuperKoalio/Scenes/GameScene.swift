@@ -29,11 +29,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     private var player: Player?
     private var previousUpdateTime = TimeInterval(0)
-    private var doorOpened = false
-    
-    private var door: SKSpriteNode?
-//    private var spawnLayer: PEMTmxTileLayer?
-//    private var terrainLayer: PEMTmxTileLayer?
+    private var walls: PEMTileLayer?
+    private var hazards: PEMTileLayer?
     
     // MARK: - Init
     
@@ -57,7 +54,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(cameraNode)
         
         loadMap()
-        initLayers()
         addSpawnObjects()
     }
     
@@ -81,21 +77,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             addChild(newMap)
             
-            newMap.moveCamera(sceneSize: size, zoomMode: .aspectFill, viewMode: .bottomLeft, factor: 1, duration: 0.5, timingMode: .easeInEaseOut)
+            walls = newMap.layerNamed("walls") as? PEMTileLayer
+            hazards = newMap.layerNamed("hazards") as? PEMTileLayer
+            
         }
-    }
-
-    // MARK: - Layers
-    
-    private func initLayers() {
-        hideScreenLayoutLayer()
-//        spawnLayer = tilemapPEM.layerNamed(LayerNameSpawn)
-//        terrainLayer = tilemapPEM.layerNamed(LayerNameTerrain)
-    }
-    
-    private func hideScreenLayoutLayer() {
-//        let screenLayoutLayer = tilemapJS?.layerNamed(LayerNameScreenLayout)
-//        screenLayoutLayer?.isHidden = !SHOW_SCREENLAYOUT_LAYER
     }
 
     // MARK: - Spawn
@@ -208,53 +193,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player?.position = player!.desiredPosition
     }
     
-//    func didBegin(_ contact: SKPhysicsContact) {
-//        guard let nodeA = contact.bodyA.node else { return }
-//        guard let nodeB = contact.bodyB.node else { return }
-//
-//        var collidedWithNode : SKTile
-//
-//        print (nodeA)
-//        print (nodeB)
-//
-//
-//        if nodeA == player {
-//            collidedWithNode = nodeB as! SKTile
-//
-//            if (contact.bodyB.categoryBitMask & ColliderCategory.Terrain) != 0 {
-//                player.didCollideWithTerrain(contact.bodyB.node, direction: contact.contactNormal)
-//            }
-//        } else {
-//            collidedWithNode = nodeA as! SKTile
-//
-//            if (contact.bodyA.categoryBitMask & ColliderCategory.Terrain) != 0 {
-//                player.didCollideWithTerrain(contact.bodyA.node, direction: contact.contactNormal)
-//            }
-//        }
-//        
-//        if !doorOpened && collidedWithNode.name == NodeNameDoorKey && contact.contactNormal.dx == 0 && contact.contactNormal.dy > 0 {
-//            doorWasOpened(collidedWithNode)
-//        }
-//
-//        if doorOpened && collidedWithNode.name == NodeNameFinish {
-//            levelCompletedSequence()
-//        }
-
-//        print (collidedWithNode)
-//        if !player.isDead && collidedWithNode.tileData.type == TileTypeWater {
-//            print("DEAD!")
-//            player.isDead = true
-//            playerDiedSequence()
-//        }
-//    }
-    
     // MARK: - Game sequence
-    
-    private func doorWasOpened(_ node: SKSpriteNode?) {
-        doorOpened = true
-        door?.removeFromParent()
-        node?.color = .green
-    }
     
     private func levelCompletedSequence() {
         gameSceneDelegate?.levelCompleted()
