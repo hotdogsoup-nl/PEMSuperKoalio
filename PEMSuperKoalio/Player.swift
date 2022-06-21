@@ -1,78 +1,60 @@
+// Based on Ray Wenderlichs SpriteKit SuperKoalio game tutorial by Jake Gunderson.
+// https://www.raywenderlich.com/2554-sprite-kit-tutorial-how-to-make-a-platform-game-like-super-mario-brothers-part-1
+
 import SpriteKit
 import CoreGraphics
 
-let SpawnTypePlayer = "Player"
-
-enum MovementDirection {
-    case idle
-    case left
-    case right
-}
-
-let gravity = CGPoint(x: 0, y: -700)
-let playerSize = CGSize(width: 16, height: 24)
-let gameTileSize = CGSize(width: 16, height: 16)
-
 class Player : SKSpriteNode {
-    var isDead = false
-    var onGround = false
-    var shouldJump = false
-    var direction = MovementDirection.idle
     var desiredPosition = CGPoint.zero
     var velocity = CGPoint.zero
-
-    private let jumpForce = CGPoint(x: 0, y: gameTileSize.height * 15)
-    private let movementForce = CGFloat(playerSize.width * 10)
-    private let movementDecelerationFactor = CGFloat(0.9)
+    var onGround = false
+    var forwardMarch = false
+    var mightAsWellJump = false
 
     class func newPlayer() -> Player {
-        let newPlayer = Player(color: .clear, size: playerSize)
-        newPlayer.texture = SKTexture(imageNamed: "koalio_stand")
+        let texture = SKTexture(imageNamed: "koalio_stand")
+        let newPlayer = Player(texture: texture, color: .clear, size: CGSize(width: 18, height: 26))
 
         return newPlayer
     }
     
     func update(_ delta: TimeInterval) {
+        let gravity = CGPoint(x: 0, y: -450)
         let gravityStep = gravity.multiplyScalar(delta)
+        
+        //1
+        let forwardMove = CGPoint(x: 800.0, y: 0.0)
+        let forwardMoveStep = forwardMove.multiplyScalar(delta)
         velocity = velocity.add(gravityStep)
         
-        if isDead {
-            velocity = CGPoint(x: velocity.x * movementDecelerationFactor, y: velocity.y)
-        }
+        //2
+        velocity = CGPoint(x: velocity.x * 0.9, y: velocity.y)
+        
+        //3
+        let jumpForce = CGPoint(x: 0.0, y: 310.0)
+        let jumpCutoff = CGFloat(150.0)
 
-        if shouldJump && onGround {
-            if !isDead {
-                velocity = velocity.add(jumpForce)
-                onGround = false
-            } else {
-                velocity = CGPoint(x: velocity.x, y: 0)
-            }
+        if mightAsWellJump && onGround {
+            velocity = velocity.add(jumpForce)
+        } else if !mightAsWellJump && velocity.y > jumpCutoff {
+            velocity = CGPoint(x: velocity.x, y: jumpCutoff)
         }
-                
-        if !isDead {
-            switch direction {
-            case .idle:
-                velocity = CGPoint(x: 0, y: velocity.y)
-                break
-            case .left:
-                velocity = CGPoint(x: -movementForce, y: velocity.y)
-                xScale = -1.0
-                break
-            case .right:
-                velocity = CGPoint(x: movementForce, y: velocity.y)
-                xScale = 1.0
-                break
-            }
+        
+        if forwardMarch {
+            velocity = velocity.add(forwardMoveStep)
         }
+        
+        //4
+        let minMovement = CGPoint(x: 0.0, y: -450)
+        let maxMovement = CGPoint(x: 120.0, y: 250.0)
+        velocity = CGPoint(x: velocity.x.clamp(min: minMovement.x, max: maxMovement.x), y: velocity.y.clamp(min: minMovement.y, max: maxMovement.y));
         
         let velocityStep = velocity.multiplyScalar(delta)
         desiredPosition = position.add(velocityStep)
     }
     
     func collisionBoundingBox() -> CGRect {
-        let offset = CGPoint(x: 2.0, y: 2.0)
-        let clippingHeight = gameTileSize.height - size.height
-        let boundingBox = CGRect(x: frame.origin.x + offset.x * 0.5, y: frame.origin.y - clippingHeight * 0.25 - offset.y, width: size.width - offset.x, height: size.height + clippingHeight)
+        let boundingBox = frame.insetBy(dx: 2, dy: 0)
         let diff = desiredPosition.subtract(position);
         return boundingBox.offsetBy(dx: diff.x, dy: diff.y);
     }

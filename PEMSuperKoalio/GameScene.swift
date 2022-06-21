@@ -1,3 +1,6 @@
+// Based on Ray Wenderlichs SpriteKit SuperKoalio game tutorial by Jake Gunderson.
+// https://www.raywenderlich.com/2554-sprite-kit-tutorial-how-to-make-a-platform-game-like-super-mario-brothers-part-1
+
 import SpriteKit
 import PEMTileMap
 
@@ -76,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hazards = newMap.layerNamed("hazards") as? PEMTileLayer
             
             player = Player.newPlayer()
-            player?.position = newMap.position(tileCoords: CGPoint(x: 5, y: 14))
+            player?.position = CGPoint(x: 100, y: 50)
             player?.zPosition = newMap.highestZPosition + 1
             newMap.addChild(player!)
         }
@@ -102,59 +105,64 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Collision detection
     
     private func checkForCollisionsAndMovePlayer() {
-//        let tileQueryPositions : [TileQueryPosition] = [.Below, .Above, .ToTheLeft, .ToTheRight, .AboveLeft, .AboveRight, .BelowLeft, .BelowRight]
-//        
-//        for tileQueryPosition in tileQueryPositions {
-//            let playerRect = player?.collisionBoundingBox()
-//            let playerCoord = tilemap.coordinateForPoint(player!.desiredPosition)
-//
-//            if playerCoord.y > tilemap.size.height {
-//                playerDiedSequence(.FellInRavine)
-//                return
-//            }
-//
-//            let tileColumn = tileQueryPosition.rawValue % 3
-//            let tileRow = tileQueryPosition.rawValue / 3
-//            let tileCoord = CGPoint(x: playerCoord.x + (tileColumn - 1), y: playerCoord.y + (tileRow - 1))
-//
-//            if let tileFound = tilemap.firstTileAt(coord: tileCoord) {
-//                let tileRect = tileFound.frame
-//                if playerRect!.intersects(tileRect) {
-//                    let intersection = playerRect!.intersection(tileRect)
-//
-//                    if tileFound.tileData.type == TileTypeWater {
-//                        playerDiedSequence(.FellInWater)
-//                    }
-//
-//                    if tileFound.tileData.type == TileTypeTerrain {
-//                        switch (tileQueryPosition) {
-//                        case .Below:
-//                            player?.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y + intersection.size.height)
-//                            player!.velocity = CGPoint(x: player!.velocity.x, y:0.0)
-//                            player?.onGround = true
-//                            player?.shouldJump = true
-//                        case .Above:
-//                            player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
-//                        case .ToTheLeft:
-//                            player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
-//                        case .ToTheRight:
-//                            player!.desiredPosition = CGPoint(x: player!.desiredPosition.x - intersection.size.width, y: player!.desiredPosition.y)
-//                        case .AboveLeft:
-//                            break
-//                        case .AboveRight:
-//                            break
-//                        case .AtCenter:
-//                            break
-//                        case .BelowLeft:
-//                            break
-//                        case .BelowRight:
-//                            break
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        guard player != nil else { return }
         
+        let tileQueryPositions : [TileQueryPosition] = [.below, .above, .toTheLeft, .toTheRight, .aboveLeft, .aboveRight, .belowLeft, .belowRight]
+        player?.onGround = false
+        
+        for tileQueryPosition in tileQueryPositions {
+            let playerRect = player?.collisionBoundingBox()
+            let playerPosition = player!.desiredPosition.subtract(CGPoint(x: 0, y: player!.size.height * 0.5))
+            let playerCoord = map!.tileCoords(positionInPoints: playerPosition)
+
+            if playerCoord.y > map!.mapSizeInPoints().height {
+                playerDiedSequence()
+                return
+            }
+
+            let tileColumn = tileQueryPosition.rawValue % 3
+            let tileRow = tileQueryPosition.rawValue / 3
+            let tileCoord = CGPoint(x: Int(playerCoord.x) + tileColumn - 1, y: Int(playerCoord.y) + tileRow - 1)
+            
+            if let tileFound = map!.tileAt(tileCoords: tileCoord, inLayer: walls!) {
+                let tileRect = tileFound.frame
+
+                //1
+                if playerRect!.intersects(tileRect) {
+                    let intersection = playerRect!.intersection(tileRect)
+
+                    //2
+                    switch (tileQueryPosition) {
+                    case .below:
+                        player?.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y + intersection.size.height)
+                        player!.velocity = CGPoint(x: player!.velocity.x, y: 0.0)
+                        player?.onGround = true
+                    case .above:
+                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
+                        break
+                    case .toTheLeft:
+                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
+                        break
+                    case .toTheRight:
+                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x - intersection.size.width, y: player!.desiredPosition.y)
+                        break
+                    case .aboveLeft:
+                        break
+                    case .aboveRight:
+                        break
+                    case .atCenter:
+                        break
+                    case .belowLeft:
+                        break
+                    case .belowRight:
+                        break
+                    }
+                    
+                }
+            }
+        }
+        
+        //6
         player?.position = player!.desiredPosition
     }
     
@@ -165,12 +173,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func playerDiedSequence() {
-        if (player!.isDead) {
-            return
-        }
-        
-        player?.isDead = true
-                
         run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run { 
             self.gameOverSequence()
         }]))
@@ -179,49 +181,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func gameOverSequence() {
         gameSceneDelegate?.gameOver()
     }
-    
-    // MARK: - Coords
-    
-//    func tileCoord(_ tile: SKTile) -> CGPoint {
-//        return tilemap.coordinateForPoint(tile.position)
-//    }
-    
-    // MARK: - Tile classes
-    
-//    override func objectForTileType(named: String?) -> SKTile.Type {
-//        switch (named) {
-//        case TileTypeTerrain:
-//            return TerrainTile.self
-//        case TileTypeWater:
-//            return WaterTile.self
-//        default:
-//            return SKTile.self
-//        }
-//    }
 
     // MARK: - Input handling
 
     private func touchDownAtPoint(_ pos: CGPoint) {
-//        if pos.x > 0 {
-//            player!.direction = .right
-//        } else {
-//            player!.direction = .left
-//        }
     }
 
     private func touchMovedToPoint(_ pos: CGPoint) {
     }
 
     private func touchUpAtPoint(_ pos: CGPoint) {
-//        if pos.x > 0 {
-//            if player!.direction == .right {
-//                player!.direction = .idle
-//            }
-//        } else {
-//            if player!.direction == .left {
-//                player!.direction = .idle
-//            }
-//        }
     }
 }
 
@@ -259,10 +228,8 @@ extension GameScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 124: // ->
-            player!.direction = .right
             return
         case 123: // <-
-            player!.direction = .left
             return
         default:
             return
@@ -272,14 +239,8 @@ extension GameScene {
     override func keyUp(with event: NSEvent) {
         switch event.keyCode {
         case 124: // ->
-            if player!.direction == .right {
-                player!.direction = .idle
-            }
             return
         case 123: // <-
-            if player!.direction == .left {
-                player!.direction = .idle
-            }
             return
         default:
             return
