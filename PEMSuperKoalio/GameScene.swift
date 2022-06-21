@@ -23,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var map: PEMTileMap?
     private var cameraNode: SKCameraNode
+    private var mapLoaded = false
+    private var previousTouchLocation = CGPoint.zero
 
     private var player: Player?
     private var previousUpdateTime = TimeInterval(0)
@@ -78,12 +80,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newMap.addChild(player!)
             
             run(SKAction.repeatForever(SKAction.playSoundFileNamed("level1.mp3", waitForCompletion: true)))
+            mapLoaded = true
         }
     }
         
     // MARK: - Game cycle
         
     override open func update(_ currentTime: TimeInterval) {
+        guard mapLoaded else { return }
+        
         super.update(currentTime)
 
         var delta = currentTime - previousUpdateTime
@@ -95,14 +100,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.previousUpdateTime = currentTime;
         
         player?.update(delta)
-        checkForCollisionsAndMovePlayer()
+        checkForAndResolveCollisionsForPlayer()
+        checkForWin()
+        setViewpointCenter()
     }
     
     // MARK: - Collision detection
     
-    private func checkForCollisionsAndMovePlayer() {
-        guard player != nil else { return }
-        
+    private func checkForAndResolveCollisionsForPlayer() {
         let tileQueryPositions : [TileQueryPosition] = [.below, .above, .toTheLeft, .toTheRight, .aboveLeft, .aboveRight, .belowLeft, .belowRight]
         player?.onGround = false
         
@@ -164,6 +169,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Game sequence
     
+    private func checkForWin() {
+        guard mapLoaded else { return }
+
+        if player!.position.x > 3130.0 {
+            gameOver(won: true)
+        }
+    }
+    
     private func levelCompletedSequence() {
     }
     
@@ -171,18 +184,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func gameOver(won: Bool) {
-        run(SKAction.playSoundFileNamed("jump.wav", waitForCompletion: true))
+        run(SKAction.playSoundFileNamed("hurt.wav", waitForCompletion: true))
     }
-
+    
     // MARK: - Input handling
 
     private func touchDownAtPoint(_ pos: CGPoint) {
+        previousTouchLocation = pos
+        
+        if pos.x > size.width / 2 {
+            player?.mightAsWellJump = true
+        } else {
+            player?.forwardMarch = true
+        }
     }
 
     private func touchMovedToPoint(_ pos: CGPoint) {
+        let halfWidth = size.width / 2
+                
+        if pos.x > halfWidth && previousTouchLocation.x <= halfWidth {
+          player?.forwardMarch = false
+          player?.mightAsWellJump = true
+        } else if previousTouchLocation.x > halfWidth && pos.x <= halfWidth {
+          player?.forwardMarch = true
+          player?.mightAsWellJump = false
+        }
+        
+        previousTouchLocation = pos
     }
 
     private func touchUpAtPoint(_ pos: CGPoint) {
+        if pos.x > size.width / 2 {
+            player?.mightAsWellJump = false
+        } else {
+            player?.forwardMarch = false
+        }
     }
 }
 
@@ -190,25 +226,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
-            touchDownAtPoint(t.location(in: self))
+            touchDownAtPoint(t.location(in: view))
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
-            touchMovedToPoint(t.location(in: self))
+            touchMovedToPoint(t.location(in: view))
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
-            touchUpAtPoint(t.location(in: self))
+            touchUpAtPoint(t.location(in: view))
         }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
-            touchUpAtPoint(t.location(in: self))
+            touchUpAtPoint(t.location(in: view))
         }
     }
 }
@@ -220,9 +256,9 @@ extension GameScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 124: // ->
-            return
-        case 123: // <-
-            return
+            player?.forwardMarch = true
+        case 49: // Space
+            player?.mightAsWellJump = true
         default:
             return
         }
@@ -231,24 +267,34 @@ extension GameScene {
     override func keyUp(with event: NSEvent) {
         switch event.keyCode {
         case 124: // ->
-            return
-        case 123: // <-
-            return
+            player?.forwardMarch = false
+        case 49: // Space
+            player?.mightAsWellJump = false
         default:
             return
         }
     }
     
     override func mouseDown(with event: NSEvent) {
-        touchDownAtPoint(event.location(in: self))
+        let location = event.locationInWindow
+        touchDownAtPoint(CGPoint(x: location.x, y: size.height - location.y))
     }
     
     override func mouseDragged(with event: NSEvent) {
-        touchMovedToPoint(event.location(in: self))
+        let location = event.locationInWindow
+        touchMovedToPoint(CGPoint(x: location.x, y: size.height - location.y))
     }
     
     override func mouseUp(with event: NSEvent) {
-        touchUpAtPoint(event.location(in: self))
+        let location = event.locationInWindow
+        touchUpAtPoint(CGPoint(x: location.x, y: size.height - location.y))
+    }
+    
+    // MARK: - Camera
+    
+    private func setViewpointCenter() {
+        guard mapLoaded else { return }
+        
     }
     
     // MARK: - View
