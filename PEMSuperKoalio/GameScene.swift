@@ -192,7 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func touchDownAtPoint(_ pos: CGPoint) {
         previousTouchLocation = pos
         
-        if pos.x > size.width / 2 {
+        if pos.x > size.width * 0.5 {
             player?.mightAsWellJump = true
         } else {
             player?.forwardMarch = true
@@ -200,7 +200,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     private func touchMovedToPoint(_ pos: CGPoint) {
-        let halfWidth = size.width / 2
+        let halfWidth = size.width * 0.5
                 
         if pos.x > halfWidth && previousTouchLocation.x <= halfWidth {
           player?.forwardMarch = false
@@ -214,7 +214,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     private func touchUpAtPoint(_ pos: CGPoint) {
-        if pos.x > size.width / 2 {
+        if pos.x > size.width * 0.5 {
             player?.mightAsWellJump = false
         } else {
             player?.forwardMarch = false
