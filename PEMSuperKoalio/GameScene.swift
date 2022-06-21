@@ -8,11 +8,6 @@ let LayerNameScreenLayout = "ScreenLayout"
 let LayerNameTerrain = "Terrain"
 let LayerNameSpawn = "Spawn"
 
-protocol GameSceneDelegate {
-    func gameOver()
-    func levelCompleted()
-}
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private enum TileQueryPosition: Int {
         case atCenter
@@ -26,7 +21,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case toTheRight
     }
     
-    var gameSceneDelegate: GameSceneDelegate?
     private var map: PEMTileMap?
     private var cameraNode: SKCameraNode
 
@@ -169,17 +163,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Game sequence
     
     private func levelCompletedSequence() {
-        gameSceneDelegate?.levelCompleted()
     }
     
     private func playerDiedSequence() {
-        run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run { 
-            self.gameOverSequence()
-        }]))
     }
     
-    private func gameOverSequence() {
-        gameSceneDelegate?.gameOver()
     }
 
     // MARK: - Input handling
