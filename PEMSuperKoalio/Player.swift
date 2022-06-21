@@ -36,6 +36,7 @@ class Player : SKSpriteNode {
 
         if mightAsWellJump && onGround {
             velocity = velocity.add(jumpForce)
+            run(SKAction.playSoundFileNamed("jump.wav", waitForCompletion: true))
         } else if !mightAsWellJump && velocity.y > jumpCutoff {
             velocity = CGPoint(x: velocity.x, y: jumpCutoff)
         }

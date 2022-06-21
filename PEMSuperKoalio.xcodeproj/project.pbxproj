@@ -10,6 +10,15 @@
 		2000FD44282BDB7400699DAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2000FD43282BDB7400699DAF /* README.md */; };
 		2000FD45282BDB7400699DAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2000FD43282BDB7400699DAF /* README.md */; };
 		2000FD46282BDB7400699DAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2000FD43282BDB7400699DAF /* README.md */; };
+		200250AD2861E53000C95330 /* hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 200250AA2861E53000C95330 /* hurt.wav */; };
+		200250AE2861E53000C95330 /* hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 200250AA2861E53000C95330 /* hurt.wav */; };
+		200250AF2861E53000C95330 /* hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 200250AA2861E53000C95330 /* hurt.wav */; };
+		200250B02861E53000C95330 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 200250AB2861E53000C95330 /* jump.wav */; };
+		200250B12861E53000C95330 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 200250AB2861E53000C95330 /* jump.wav */; };
+		200250B22861E53000C95330 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 200250AB2861E53000C95330 /* jump.wav */; };
+		200250B32861E53000C95330 /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 200250AC2861E53000C95330 /* level1.mp3 */; };
+		200250B42861E53000C95330 /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 200250AC2861E53000C95330 /* level1.mp3 */; };
+		200250B52861E53000C95330 /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 200250AC2861E53000C95330 /* level1.mp3 */; };
 		2014E98428168E6100A12253 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98328168E6100A12253 /* Player.swift */; };
 		2014E98528168E6100A12253 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98328168E6100A12253 /* Player.swift */; };
 		2037A5D628258C4900E13452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037A5D528258C4900E13452 /* AppDelegate.swift */; };
@@ -55,8 +64,13 @@
 
 /* Begin PBXFileReference section */
 		2000FD43282BDB7400699DAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		200250A62861BDC100C95330 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMSuperKoalio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200250A72861BDC100C95330 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMSuperKoalio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200250A82861BDC100C95330 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEMSuperKoalio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200250AA2861E53000C95330 /* hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hurt.wav; sourceTree = "<group>"; };
+		200250AB2861E53000C95330 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
+		200250AC2861E53000C95330 /* level1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1.mp3; sourceTree = "<group>"; };
 		2014E98328168E6100A12253 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		2037A5D328258C4800E13452 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMSuperKoalio.app; path = "/Volumes/Data HD/P-Edge Documents/Devving stuff that matters/Apps/PEMSuperKoalio/build/Debug-appletvos/PEMSuperKoalio.app"; sourceTree = "<absolute>"; };
 		2037A5D528258C4900E13452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2037A5DD28258C4900E13452 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2037A5E028258C4900E13452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,12 +78,10 @@
 		206587DA286086EB00DED69C /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 		207D3DAF2812AD5600FC4C77 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		207D3DB02812AD5700FC4C77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		207D3DB52812AD5700FC4C77 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMSuperKoalio.app; path = "/Volumes/Data HD/P-Edge Documents/Devving stuff that matters/Apps/PEMSuperKoalio/build/Debug-iphoneos/PEMSuperKoalio.app"; sourceTree = "<absolute>"; };
 		207D3DB82812AD5700FC4C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		207D3DBA2812AD5700FC4C77 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		207D3DBD2812AD5700FC4C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		207D3DC02812AD5700FC4C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		207D3DC62812AD5700FC4C77 /* PEMSuperKoalio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PEMSuperKoalio.app; path = "/Volumes/Data HD/P-Edge Documents/Devving stuff that matters/Apps/PEMSuperKoalio/build/Debug/PEMSuperKoalio.app"; sourceTree = "<absolute>"; };
 		207D3DC82812AD5700FC4C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		207D3DCD2812AD5700FC4C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20AC1FFF283CFF5E00BE83F0 /* superkoalio.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = superkoalio.tmx; sourceTree = "<group>"; };
@@ -108,6 +120,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		200250A92861E53000C95330 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				200250AA2861E53000C95330 /* hurt.wav */,
+				200250AB2861E53000C95330 /* jump.wav */,
+				200250AC2861E53000C95330 /* level1.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		201D43BA2839428100125433 /* PEMSuperKoalio */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +170,9 @@
 				2000FD43282BDB7400699DAF /* README.md */,
 				201D43BA2839428100125433 /* PEMSuperKoalio */,
 				2074E41F28181EDD002137A7 /* Frameworks */,
+				200250A62861BDC100C95330 /* PEMSuperKoalio.app */,
+				200250A72861BDC100C95330 /* PEMSuperKoalio.app */,
+				200250A82861BDC100C95330 /* PEMSuperKoalio.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +200,7 @@
 		20CA13A028181D5000797A7C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				200250A92861E53000C95330 /* Audio */,
 				206587DA286086EB00DED69C /* sprites.atlas */,
 				20AC2001283CFF5E00BE83F0 /* superkoalio.png */,
 				20AC1FFF283CFF5E00BE83F0 /* superkoalio.tmx */,
@@ -203,7 +229,7 @@
 				20A71DA2283A138C00100B1C /* PEMTileMap */,
 			);
 			productName = pemtmxdemo;
-			productReference = 2037A5D328258C4800E13452 /* PEMSuperKoalio.app */;
+			productReference = 200250A82861BDC100C95330 /* PEMSuperKoalio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		207D3DB42812AD5700FC4C77 /* iOS version */ = {
@@ -223,7 +249,7 @@
 				20A71D9E283A137300100B1C /* PEMTileMap */,
 			);
 			productName = "Dotty The Kangaroo iOS";
-			productReference = 207D3DB52812AD5700FC4C77 /* PEMSuperKoalio.app */;
+			productReference = 200250A62861BDC100C95330 /* PEMSuperKoalio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		207D3DC52812AD5700FC4C77 /* macOS version */ = {
@@ -243,7 +269,7 @@
 				20A71DA0283A138800100B1C /* PEMTileMap */,
 			);
 			productName = "Dotty The Kangaroo macOS";
-			productReference = 207D3DC62812AD5700FC4C77 /* PEMSuperKoalio.app */;
+			productReference = 200250A72861BDC100C95330 /* PEMSuperKoalio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -295,13 +321,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200250B22861E53000C95330 /* jump.wav in Resources */,
 				20AC200A283CFF5E00BE83F0 /* superkoalio.png in Resources */,
 				2037A5E128258C4900E13452 /* Main.storyboard in Resources */,
 				206587DD286086EB00DED69C /* sprites.atlas in Resources */,
 				20AC2007283CFF5E00BE83F0 /* tileSet.tsx in Resources */,
 				20AC2004283CFF5E00BE83F0 /* superkoalio.tmx in Resources */,
 				2037A5EA28258D9A00E13452 /* Assets.xcassets in Resources */,
+				200250AF2861E53000C95330 /* hurt.wav in Resources */,
 				2000FD46282BDB7400699DAF /* README.md in Resources */,
+				200250B52861E53000C95330 /* level1.mp3 in Resources */,
 				2037A5E628258C4A00E13452 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,13 +339,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200250B02861E53000C95330 /* jump.wav in Resources */,
 				20AC2008283CFF5E00BE83F0 /* superkoalio.png in Resources */,
 				207D3DBE2812AD5700FC4C77 /* Main.storyboard in Resources */,
 				206587DB286086EB00DED69C /* sprites.atlas in Resources */,
 				207D3DC12812AD5700FC4C77 /* LaunchScreen.storyboard in Resources */,
 				20AC2005283CFF5E00BE83F0 /* tileSet.tsx in Resources */,
 				20AC2002283CFF5E00BE83F0 /* superkoalio.tmx in Resources */,
+				200250AD2861E53000C95330 /* hurt.wav in Resources */,
 				207D3DD62812AD5700FC4C77 /* Assets.xcassets in Resources */,
+				200250B32861E53000C95330 /* level1.mp3 in Resources */,
 				2000FD44282BDB7400699DAF /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,8 +362,11 @@
 				207D3DCE2812AD5700FC4C77 /* Main.storyboard in Resources */,
 				20AC2003283CFF5E00BE83F0 /* superkoalio.tmx in Resources */,
 				2000FD45282BDB7400699DAF /* README.md in Resources */,
+				200250B42861E53000C95330 /* level1.mp3 in Resources */,
 				20AC2006283CFF5E00BE83F0 /* tileSet.tsx in Resources */,
+				200250B12861E53000C95330 /* jump.wav in Resources */,
 				207D3DD72812AD5700FC4C77 /* Assets.xcassets in Resources */,
+				200250AE2861E53000C95330 /* hurt.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

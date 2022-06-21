@@ -76,6 +76,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player?.position = CGPoint(x: 100, y: 50)
             player?.zPosition = newMap.highestZPosition + 1
             newMap.addChild(player!)
+            
+            run(SKAction.repeatForever(SKAction.playSoundFileNamed("level1.mp3", waitForCompletion: true)))
         }
     }
         
@@ -168,6 +170,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func playerDiedSequence() {
     }
     
+    private func gameOver(won: Bool) {
+        run(SKAction.playSoundFileNamed("jump.wav", waitForCompletion: true))
     }
 
     // MARK: - Input handling
