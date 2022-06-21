@@ -1,8 +1,12 @@
 import SpriteKit
 
 extension CGFloat {
-    internal func radians() -> CGFloat {
+    func radians() -> CGFloat {
         return CGFloat(Double.pi) * (self / 180)
+    }
+    
+    func clamp(min: CGFloat, max: CGFloat) -> CGFloat {
+        return (self < min) ? min : (self > max) ? max : self
     }
 }
 
