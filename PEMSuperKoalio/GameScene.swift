@@ -296,13 +296,13 @@ extension GameScene {
         guard mapLoaded else { return }
                 
         if let playerPosition = player?.position {
-            let baseCameraPositionX = map!.mapSizeInPoints().width * -0.5 + size.width * 0.5
-            let baseCameraPositionY = map!.mapSizeInPoints().height * -0.5 + size.height * 0.5
+            let baseCameraPositionX = map!.mapSizeInPoints().width * -0.5 + size.width * 0.5 * cameraNode.xScale
+            let baseCameraPositionY = map!.mapSizeInPoints().height * -0.5 + size.height * 0.5 * cameraNode.yScale
 
-            var x = max(playerPosition.x, size.width / 2) - size.width * 0.5
-            var y = max(playerPosition.y, size.height / 2) - size.height * 0.5
-            x = min(x, map!.mapSizeInPoints().width - size.width / 2)
-            y = min(y, map!.mapSizeInPoints().height - size.height / 2)
+            var x = max(playerPosition.x, size.width * 0.5 * cameraNode.xScale) - size.width * 0.5 * cameraNode.xScale
+            var y = max(playerPosition.y, size.height * 0.5 * cameraNode.yScale) - size.height * 0.5 * cameraNode.yScale
+            x = min(x, map!.mapSizeInPoints().width - size.width * 0.5)
+            y = min(y, map!.mapSizeInPoints().height - size.height * 0.5)
 
             let newCameraPositionX = baseCameraPositionX + x
             let newCameraPositionY = baseCameraPositionY + y
