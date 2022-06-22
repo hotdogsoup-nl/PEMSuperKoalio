@@ -304,8 +304,8 @@ extension GameScene {
             x = min(x, map!.mapSizeInPoints().width - size.width * 0.5)
             y = min(y, map!.mapSizeInPoints().height - size.height * 0.5)
 
-            let newCameraPositionX = baseCameraPositionX + x
-            let newCameraPositionY = baseCameraPositionY + y
+            let newCameraPositionX = max(baseCameraPositionX, baseCameraPositionX + x)
+            let newCameraPositionY = max(baseCameraPositionY, baseCameraPositionY + y)
             
             cameraNode.position = CGPoint(x: newCameraPositionX, y: newCameraPositionY)
         }
