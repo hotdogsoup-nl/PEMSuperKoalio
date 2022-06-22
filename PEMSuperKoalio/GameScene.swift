@@ -173,7 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func checkForWin() {
         guard mapLoaded else { return }
 
-        if player!.position.x > 3130.0 {
+        if player!.position.x > map!.mapSizeInPoints().width * 0.95 {
             gameOver(won: true)
         }
     }
