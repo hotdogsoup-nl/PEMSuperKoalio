@@ -142,13 +142,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         player?.onGround = true
                         break
                     case .above:
-//                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
+                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
                         break
                     case .toTheLeft:
-//                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
+                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
                         break
                     case .toTheRight:
-//                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x - intersection.size.width, y: player!.desiredPosition.y)
+                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x - intersection.size.width, y: player!.desiredPosition.y)
                         break
                     case .aboveLeft:
                         break
