@@ -55,7 +55,7 @@ class Player : SKSpriteNode {
     }
     
     func collisionBoundingBox() -> CGRect {
-        let boundingBox = frame.insetBy(dx: 2, dy: 0)
+        let boundingBox = frame.insetBy(dx: 2, dy: 1)
         let diff = desiredPosition.subtract(position);
         return boundingBox.offsetBy(dx: diff.x, dy: diff.y);
     }

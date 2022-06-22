@@ -10,15 +10,14 @@ let LayerNameSpawn = "Spawn"
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private enum TileQueryPosition: Int {
-        case atCenter
-        case above
-        case aboveLeft
-        case aboveRight
-        case below
-        case belowLeft
-        case belowRight
-        case toTheLeft
-        case toTheRight
+        case above = 1
+        case aboveLeft = 0
+        case aboveRight = 2
+        case below = 7
+        case belowLeft = 6
+        case belowRight = 8
+        case toTheLeft = 3
+        case toTheRight = 5
     }
     
     private var map: PEMTileMap?
@@ -75,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hazards = newMap.layerNamed("hazards") as? PEMTileLayer
             
             player = Player.newPlayer()
-            player?.position = CGPoint(x: 100, y: 50)
+            player?.position = newMap.position(tileCoords: CGPoint(x: 7, y: 15), centered: true)
             player?.zPosition = newMap.highestZPosition + 1
             newMap.addChild(player!)
             
@@ -113,11 +112,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for tileQueryPosition in tileQueryPositions {
             let playerRect = player?.collisionBoundingBox()
-            let playerPosition = player!.desiredPosition.subtract(CGPoint(x: 0, y: player!.size.height * 0.5))
+            let playerPosition = player!.desiredPosition
             let playerCoord = map!.tileCoords(positionInPoints: playerPosition)
-
-            if playerCoord.y > map!.mapSizeInPoints().height {
-                playerDiedSequence()
+            
+            if playerCoord.y > map!.mapSizeInTiles().height + 1 {
+                gameOver(won: false)
                 return
             }
 
@@ -138,20 +137,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         player?.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y + intersection.size.height)
                         player!.velocity = CGPoint(x: player!.velocity.x, y: 0.0)
                         player?.onGround = true
+                        break
                     case .above:
-                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
+//                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
                         break
                     case .toTheLeft:
-                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
+//                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
                         break
                     case .toTheRight:
-                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x - intersection.size.width, y: player!.desiredPosition.y)
+//                        player!.desiredPosition = CGPoint(x: player!.desiredPosition.x - intersection.size.width, y: player!.desiredPosition.y)
                         break
                     case .aboveLeft:
                         break
                     case .aboveRight:
-                        break
-                    case .atCenter:
                         break
                     case .belowLeft:
                         break
