@@ -30,6 +30,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var walls: PEMTileLayer?
     private var hazards: PEMTileLayer?
     
+    private var gameOver = false
+    
     // MARK: - Init
     
     override init(size: CGSize) {
@@ -87,7 +89,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     override open func update(_ currentTime: TimeInterval) {
         guard mapLoaded else { return }
-        
+        guard !gameOver else { return }
+
         super.update(currentTime)
 
         var delta = currentTime - previousUpdateTime
@@ -174,14 +177,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver(won: true)
         }
     }
-    
-    private func levelCompletedSequence() {
-    }
-    
-    private func playerDiedSequence() {
-    }
-    
+        
     private func gameOver(won: Bool) {
+        gameOver = true
         run(SKAction.playSoundFileNamed("hurt.wav", waitForCompletion: true))
     }
     
