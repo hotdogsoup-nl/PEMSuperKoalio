@@ -10,14 +10,14 @@ let LayerNameSpawn = "Spawn"
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private enum TileQueryPosition: Int {
-        case above = 1
         case aboveLeft = 0
+        case above = 1
         case aboveRight = 2
-        case below = 7
-        case belowLeft = 6
-        case belowRight = 8
         case toTheLeft = 3
         case toTheRight = 5
+        case belowLeft = 6
+        case below = 7
+        case belowRight = 8
     }
     
     private var map: PEMTileMap?
@@ -103,6 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player?.update(delta)
         checkForAndResolveCollisionsForPlayer()
+        handleHazardCollisions()
         checkForWin()
         setViewpointCenter()
     }
@@ -140,26 +141,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         player?.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y + intersection.size.height)
                         player!.velocity = CGPoint(x: player!.velocity.x, y: 0.0)
                         player?.onGround = true
-                        break
                     case .above:
                         player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
-                        break
                     case .toTheLeft:
                         player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
-                        break
                     case .toTheRight:
                         player!.desiredPosition = CGPoint(x: player!.desiredPosition.x - intersection.size.width, y: player!.desiredPosition.y)
-                        break
-                    case .aboveLeft:
-                        break
-                    case .aboveRight:
-                        break
-                    case .belowLeft:
-                        break
-                    case .belowRight:
-                        break
+                    default:
+                        if (intersection.size.width > intersection.size.height) {
+                            //tile is diagonal, but resolving collision vertically
+                            //4
+                            player?.velocity = CGPoint(x: player!.velocity.x, y: 0.0)
+                            var intersectionHeight = CGFloat(0)
+                            
+                            if tileQueryPosition == .toTheRight
+                                || tileQueryPosition == .belowLeft
+                                || tileQueryPosition == .below
+                                || tileQueryPosition == .belowRight {
+                            intersectionHeight = intersection.size.height
+                            player?.onGround = true
+                            } else {
+                                intersectionHeight = -intersection.size.height
+                            }
+                            player?.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y + intersectionHeight)
+                        } else {
+                            //tile is diagonal, but resolving horizontally
+                            var intersectionWidth = CGFloat(0)
+                            
+                            if tileQueryPosition == .belowLeft
+                                || tileQueryPosition == .aboveLeft {
+                                intersectionWidth = intersection.size.width
+                            } else {
+                                intersectionWidth = -intersection.size.width
+                            }
+                            //5
+                            player?.desiredPosition = CGPoint(x: player!.desiredPosition.x  + intersectionWidth, y: player!.desiredPosition.y)
+                        }
                     }
-                    
                 }
             }
         }
@@ -168,11 +186,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player?.position = player!.desiredPosition
     }
     
+    private func handleHazardCollisions() {
+        let tileQueryPositions : [TileQueryPosition] = [.below, .above, .toTheLeft, .toTheRight, .aboveLeft, .aboveRight, .belowLeft, .belowRight]
+        
+        for tileQueryPosition in tileQueryPositions {
+            let playerRect = player?.collisionBoundingBox()
+            let playerPosition = player!.desiredPosition
+            let playerCoord = map!.tileCoords(positionInPoints: playerPosition)
+
+            let tileColumn = tileQueryPosition.rawValue % 3
+            let tileRow = tileQueryPosition.rawValue / 3
+            let tileCoord = CGPoint(x: Int(playerCoord.x) + tileColumn - 1, y: Int(playerCoord.y) + tileRow - 1)
+            
+            if let tileFound = map!.tileAt(tileCoords: tileCoord, inLayer: hazards!) {
+                let tileRect = tileFound.frame
+
+                //1
+                if playerRect!.intersects(tileRect) {
+                    gameOver(won: false)
+                }
+            }
+        }
+    }
+    
     // MARK: - Game sequence
     
     private func checkForWin() {
-        guard mapLoaded else { return }
-
         if player!.position.x > map!.mapSizeInPoints().width * 0.95 {
             gameOver(won: true)
         }
@@ -220,8 +259,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Camera
     
     private func setViewpointCenter() {
-        guard mapLoaded else { return }
-                
         if let playerPosition = player?.position {
             let baseCameraPositionX = map!.mapSizeInPoints().width * -0.5 + size.width * 0.5 * cameraNode.xScale
             let baseCameraPositionY = map!.mapSizeInPoints().height * -0.5 + size.height * 0.5 * cameraNode.yScale
