@@ -1,6 +1,3 @@
-// Based on Ray Wenderlichs SpriteKit SuperKoalio game tutorial by Jake Gunderson.
-// https://www.raywenderlich.com/2554-sprite-kit-tutorial-how-to-make-a-platform-game-like-super-mario-brothers-part-1
-
 import SpriteKit
 import PEMTileMap
 
