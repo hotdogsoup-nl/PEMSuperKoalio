@@ -10,6 +10,10 @@
 
 The SuperKoalio demo project helped me to get into games programming. It was originally made in Objective-C with the `Cocos2D` framework and later a `SpriteKit` version ws made. I decided to make a Swift version that uses [PEMTileMap][pemtilemap-url] instead of `JSTileMap` for the map generation.
 
+<p align="center">
+<img src="Doc/screenshot_macos.png" height="450"/>
+</p>
+
 The map format used is still the original TMX Map file. [TMX Map files][tmx-map-url] can be created and edited with [Tiled][tiled-url].
 
 This project is intended as educational, expanding upon Ray Wenderlichs original tutorial and code.
