@@ -17,19 +17,26 @@ This project is intended as educational, expanding upon Ray Wenderlichs original
 ‼️ *This project is IN DEVELOPMENT. The master branch will be pushed when the code is alpha ready.* ‼️
 
 ## PEMSuperKoalio Game Features
-- [ ] load map using the `PEMTmxMap` framework
-- [ ] spawn player on the map
-- [ ] collision detection
-- [ ] level completed, load next map
-- [ ] game over
-- [ ] sound & music with Audio Unit effects
-- [ ] input: touch screen control
-- [ ] input: keyboard and mouse
+- [X] load map using the `PEMTmxMap` framework
+- [X] spawn player on the map
+- [X] collision detection
+- [X] level completed, win
+- [X] game over
+- [X] sound & music
+- [X] input: touch screen control
+- [X] input: keyboard and mouse
 - [ ] input: Apple TV remote controller
 - [ ] input: external game controllers
   
 ## License
-Licensed under the [MIT license](license.md).
+Based on Ray Wenderlichs SpriteKit SuperKoalio game tutorial by Jake Gunderson.
+For educational purposes only.
+https://www.raywenderlich.com/2554-sprite-kit-tutorial-how-to-make-a-platform-game-like-super-mario-brothers-part-1
+
+Created by Jake Gundersen on 12/27/13.
+Copyright (c) 2013 Razeware, LLC. All rights reserved.
+
+Converted to Swift as a derived work for educational purposes by M.J. van Spanje, P-Edge media in 2022. Some improvements and changes were added. If you believe your rights are being infringed upon, please contact me via https://www.p-edge.nl
 
 [tmx-map-url]:https://doc.mapeditor.org/en/stable/reference/tmx-map-format/#
 [tiled-url]:http://www.mapeditor.org
