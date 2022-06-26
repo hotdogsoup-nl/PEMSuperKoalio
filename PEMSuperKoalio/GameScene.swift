@@ -226,6 +226,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func gameOver(won: Bool) {
         gameOver = true
         run(SKAction.playSoundFileNamed("hurt.wav", waitForCompletion: true))
+        
+        //1
+        let endGameLabel = SKLabelNode(fontNamed: "Marker Felt")
+        endGameLabel.text = won ? "You Won!" : "You have Died!"
+        endGameLabel.fontSize = 40
+        endGameLabel.position = CGPoint(x: 0, y: size.height * 0.2)
+        camera?.addChild(endGameLabel)
+        
+        //2
+        #if os(iOS) || os(tvOS)
+        let replayButton = UIButton(type: .custom)
+        replayButton.tag = 321
+        let replayImage = UIImage(named: "replay")!
+        replayButton.setImage(replayImage, for: .normal)
+        replayButton.addTarget(self, action: #selector(replay), for: .touchUpInside)
+        replayButton.frame = CGRect(x: size.width / 2.0 - replayImage.size.width / 2.0, y: size.height / 2.0 - replayImage.size.height / 2.0, width: replayImage.size.width, height: replayImage.size.height)
+        view?.addSubview(replayButton)
+        #else
+        let replayImage = NSImage(named: "replay")!
+        let replayButton = NSButton(image: replayImage, target: self, action: #selector(replay))
+        replayButton.bezelStyle = .shadowlessSquare
+        replayButton.isBordered = false
+        replayButton.imagePosition = .imageOnly
+        replayButton.tag = 321
+        replayButton.frame = CGRect(x: size.width / 2.0 - replayImage.size.width / 2.0, y: size.height / 2.0 - replayImage.size.height / 2.0, width: replayImage.size.width, height: replayImage.size.height)
+        view?.addSubview(replayButton)
+        #endif
+    }
+    
+    //3
+    @objc private func replay() {
+        view?.viewWithTag(321)?.removeFromSuperview()
+        gameSceneDelegate?.restartGame()
     }
     
     // MARK: - Input handling
