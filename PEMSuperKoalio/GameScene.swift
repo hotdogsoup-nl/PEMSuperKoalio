@@ -8,6 +8,10 @@ let LayerNameScreenLayout = "ScreenLayout"
 let LayerNameTerrain = "Terrain"
 let LayerNameSpawn = "Spawn"
 
+protocol GameSceneDelegate {
+    func restartGame()
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private enum TileQueryPosition: Int {
         case aboveLeft = 0
@@ -19,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case below = 7
         case belowRight = 8
     }
+    
+    var gameSceneDelegate: GameSceneDelegate?
     
     private var map: PEMTileMap?
     private var cameraNode: SKCameraNode

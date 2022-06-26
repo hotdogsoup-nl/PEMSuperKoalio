@@ -6,7 +6,7 @@ import Cocoa
 import UIKit
 #endif
 
-public class GameController: NSObject {
+public class GameController: NSObject, GameSceneDelegate {
     weak public var view: SKView?
     private var currentScene : GameScene?
     
@@ -32,6 +32,7 @@ public class GameController: NSObject {
             let nextScene = GameScene(size: view!.bounds.size)
             nextScene.scaleMode = .aspectFill            
             currentScene = nextScene
+            currentScene?.gameSceneDelegate = self
 
             let transition = SKTransition.fade(withDuration: 0.3)
             view!.presentScene(nextScene, transition: transition)
@@ -40,10 +41,8 @@ public class GameController: NSObject {
     
     // MARK: - GameSceneDelegate
     
-    func gameOver() {
-    }
-    
-    func levelCompleted() {
+    func restartGame() {
+        loadGameScene()
     }
     
     // MARK: - View
