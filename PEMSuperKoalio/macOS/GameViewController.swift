@@ -22,6 +22,7 @@ class GameViewController: NSViewController, NSWindowDelegate {
     override func viewDidAppear() {
         super.viewDidAppear()
         view.window?.delegate = self
+        view.window?.acceptsMouseMovedEvents = true
     }
     
     func windowDidResize(_ notification: Notification) {

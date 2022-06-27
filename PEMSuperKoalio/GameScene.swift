@@ -86,7 +86,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newMap.addChild(player!)
             
             addChild(backgroundMusic)
-
             mapLoaded = true
         }
     }
@@ -312,6 +311,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 #endif
     
+#if os(macOS)
+    private func touchDownAtPoint(_ pos: CGPoint) {
+    }
+
+    private func touchMovedToPoint(_ pos: CGPoint) {
+        player?.forwardMarch = pos.x > size.width * 0.5
+    }
+
+    private func touchUpAtPoint(_ pos: CGPoint) {
+        player?.forwardMarch = false
+    }
+#endif
+    
     // MARK: - Camera
     
     private func setViewpointCenter() {
@@ -404,18 +416,19 @@ extension GameScene {
     }
     
     override func mouseDown(with event: NSEvent) {
-        let location = event.locationInWindow
-        touchDownAtPoint(CGPoint(x: location.x, y: size.height - location.y))
+        player?.mightAsWellJump = true
     }
     
-    override func mouseDragged(with event: NSEvent) {
+    override func mouseMoved(with event: NSEvent) {
         let location = event.locationInWindow
         touchMovedToPoint(CGPoint(x: location.x, y: size.height - location.y))
     }
     
+    override func mouseDragged(with event: NSEvent) {
+    }
+    
     override func mouseUp(with event: NSEvent) {
-        let location = event.locationInWindow
-        touchUpAtPoint(CGPoint(x: location.x, y: size.height - location.y))
+        player?.mightAsWellJump = false
     }
     
     // MARK: - View
