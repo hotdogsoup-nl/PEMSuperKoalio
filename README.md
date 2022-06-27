@@ -18,8 +18,6 @@ The map format used is still the original TMX Map file. [TMX Map files][tmx-map-
 
 This project is intended as educational, expanding upon Ray Wenderlichs original tutorial and code.
 
-‼️ *This project is IN DEVELOPMENT. The master branch will be pushed when the code is alpha ready.* ‼️
-
 ## PEMSuperKoalio Game Features
 - [X] load map using the `PEMTmxMap` framework
 - [X] spawn player on the map
@@ -29,8 +27,7 @@ This project is intended as educational, expanding upon Ray Wenderlichs original
 - [X] sound & music
 - [X] input: touch screen control
 - [X] input: keyboard and mouse
-- [ ] input: Apple TV remote controller
-- [ ] input: external game controllers
+- [X] input: Apple TV remote controller
   
 ## License
 Based on Ray Wenderlichs SpriteKit SuperKoalio game tutorial by Jake Gunderson.
