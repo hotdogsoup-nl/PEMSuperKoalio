@@ -19,7 +19,7 @@ The map format used is still the original TMX Map file. [TMX Map files][tmx-map-
 This project is intended as educational, expanding upon Ray Wenderlichs original tutorial and code.
 
 ## PEMSuperKoalio Game Features
-- [X] load map using the `PEMTmxMap` framework
+- [X] load map using the `PEMTileMap` framework
 - [X] spawn player on the map
 - [X] collision detection
 - [X] level completed, win
