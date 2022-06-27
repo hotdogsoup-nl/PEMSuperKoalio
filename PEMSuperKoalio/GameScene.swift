@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var hazards: PEMTileLayer?
     
     private var gameOver = false
+    private var replayButton: UIButton?
     
     // MARK: - Init
     
@@ -221,7 +222,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver(won: true)
         }
     }
-        
+            
     private func gameOver(won: Bool) {
         gameOver = true
         run(SKAction.playSoundFileNamed("hurt.wav", waitForCompletion: true))
@@ -234,15 +235,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         camera?.addChild(endGameLabel)
         
         //2
-        #if os(iOS) || os(tvOS)
-        let replayButton = UIButton(type: .custom)
-        replayButton.tag = 321
+        #if os(iOS)
+        
+        replayButton = UIButton(type: .custom)
+        replayButton!.tag = 321
         let replayImage = UIImage(named: "replay")!
-        replayButton.setImage(replayImage, for: .normal)
-        replayButton.addTarget(self, action: #selector(replay), for: .touchUpInside)
-        replayButton.frame = CGRect(x: size.width / 2.0 - replayImage.size.width / 2.0, y: size.height / 2.0 - replayImage.size.height / 2.0, width: replayImage.size.width, height: replayImage.size.height)
-        view?.addSubview(replayButton)
-        #else
+        replayButton!.setImage(replayImage, for: .normal)
+        replayButton!.addTarget(self, action: #selector(replay), for: .touchUpInside)
+        replayButton!.frame = CGRect(x: size.width / 2.0 - replayImage.size.width / 2.0, y: size.height / 2.0 - replayImage.size.height / 2.0, width: replayImage.size.width, height: replayImage.size.height)
+        view?.addSubview(replayButton!)
+        
+        #elseif os(tvOS)
+        
+        replayButton = UIButton(type: .custom)
+        replayButton!.tag = 321
+        let replayImage = UIImage(named: "replay")!
+        replayButton!.setImage(replayImage, for: .normal)
+        replayButton!.addTarget(self, action: #selector(replay), for: .primaryActionTriggered)
+        replayButton!.frame = CGRect(x: size.width / 2.0 - replayImage.size.width / 2.0, y: size.height / 2.0 - replayImage.size.height / 2.0, width: replayImage.size.width, height: replayImage.size.height)
+        view?.addSubview(replayButton!)
+        setNeedsFocusUpdate()
+        updateFocusIfNeeded()
+        
+        #elseif os(macOS)
+        
         let replayImage = NSImage(named: "replay")!
         let replayButton = NSButton(image: replayImage, target: self, action: #selector(replay))
         replayButton.bezelStyle = .shadowlessSquare
@@ -388,6 +404,14 @@ extension GameScene {
     override func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         player?.mightAsWellJump = false
     }
+    
+    override var preferredFocusedView: UIView? {
+         return replayButton
+    }
+    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return [replayButton!]
+    }
 }
 #endif
 
@@ -431,8 +455,6 @@ extension GameScene {
         player?.mightAsWellJump = false
     }
     
-    // MARK: - View
-            
     public func didChangeSize() {
     }
 }
