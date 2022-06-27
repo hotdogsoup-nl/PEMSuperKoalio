@@ -25,6 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var map: PEMTileMap?
     private var cameraNode: SKCameraNode
+    private var backgroundMusic: SKAudioNode
     private var mapLoaded = false
     private var previousTouchLocation = CGPoint.zero
 
@@ -39,6 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override init(size: CGSize) {
         cameraNode = SKCameraNode()
+        backgroundMusic = SKAudioNode(fileNamed: "level1.mp3")
         super.init(size: size)
         
         startControl()
@@ -83,7 +85,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player?.zPosition = newMap.highestZPosition + 1
             newMap.addChild(player!)
             
-            run(SKAction.repeatForever(SKAction.playSoundFileNamed("level1.mp3", waitForCompletion: true)))
+            addChild(backgroundMusic)
+
             mapLoaded = true
         }
     }
@@ -254,6 +257,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //3
     @objc private func replay() {
+        backgroundMusic.run(SKAction.stop())
         view?.viewWithTag(321)?.removeFromSuperview()
         gameSceneDelegate?.restartGame()
     }
