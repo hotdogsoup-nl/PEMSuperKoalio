@@ -260,9 +260,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Input handling
 
+#if os(iOS)
     private func touchDownAtPoint(_ pos: CGPoint) {
         previousTouchLocation = pos
-        
+                
         if pos.x > size.width * 0.5 {
             player?.mightAsWellJump = true
         } else {
@@ -291,6 +292,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player?.forwardMarch = false
         }
     }
+#endif
+    
+#if os(tvOS)
+    private func touchDownAtPoint(_ pos: CGPoint) {
+        previousTouchLocation = pos
+    }
+
+    private func touchMovedToPoint(_ pos: CGPoint) {
+        player?.forwardMarch = pos.x > previousTouchLocation.x
+    }
+
+    private func touchUpAtPoint(_ pos: CGPoint) {
+        player?.forwardMarch = false
+    }
+#endif
     
     // MARK: - Camera
     
@@ -340,8 +356,26 @@ extension GameScene {
 }
 #endif
 
-#if os(macOS)
+#if os(tvOS)
+extension GameScene {
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        player?.mightAsWellJump = true
+    }
 
+    override func pressesChanged(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+    }
+
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        player?.mightAsWellJump = false
+    }
+
+    override func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        player?.mightAsWellJump = false
+    }
+}
+#endif
+
+#if os(macOS)
 extension GameScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
@@ -381,13 +415,8 @@ extension GameScene {
     }
     
     // MARK: - View
-        
-    #if os(macOS)
-    
+            
     public func didChangeSize() {
     }
-    
-    #endif
 }
-
 #endif

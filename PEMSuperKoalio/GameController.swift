@@ -45,6 +45,26 @@ public class GameController: NSObject, GameSceneDelegate {
         loadGameScene()
     }
     
+    // MARK: - Apple Remote
+    
+#if os(tvOS)
+    func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        currentScene?.pressesBegan(presses, with: event)
+    }
+    
+    func pressesChanged(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        currentScene?.pressesChanged(presses, with: event)
+    }
+    
+    func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        currentScene?.pressesEnded(presses, with: event)
+    }
+    
+    func pressesCancelled(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        currentScene?.pressesCancelled(presses, with: event)
+    }
+#endif
+    
     // MARK: - View
     
     #if os(macOS)
