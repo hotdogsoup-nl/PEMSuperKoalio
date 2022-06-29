@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "pemtilemap",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hotdogsoup-nl/PEMTileMap.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "bc54e60aa2f808fa321f2e525f9c18ba107adcb6"
+      }
+    }
+  ],
+  "version" : 2
+}
