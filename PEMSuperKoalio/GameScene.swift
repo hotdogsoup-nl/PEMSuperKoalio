@@ -35,7 +35,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var hazards: PEMTileLayer?
     
     private var gameOver = false
+    
+#if os(iOS) || os(tvOS)
     private var replayButton: UIButton?
+#else
+    private var replayButton: NSButton?
+#endif
     
     // MARK: - Init
     
