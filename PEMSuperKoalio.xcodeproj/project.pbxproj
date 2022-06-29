@@ -21,6 +21,9 @@
 		200250B52861E53000C95330 /* level1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 200250AC2861E53000C95330 /* level1.mp3 */; };
 		2014E98428168E6100A12253 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98328168E6100A12253 /* Player.swift */; };
 		2014E98528168E6100A12253 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014E98328168E6100A12253 /* Player.swift */; };
+		201F5D2F286C401200C435AF /* PEMSuperKoalio.png in Resources */ = {isa = PBXBuildFile; fileRef = 201F5D2E286C401200C435AF /* PEMSuperKoalio.png */; };
+		201F5D30286C401200C435AF /* PEMSuperKoalio.png in Resources */ = {isa = PBXBuildFile; fileRef = 201F5D2E286C401200C435AF /* PEMSuperKoalio.png */; };
+		201F5D31286C401200C435AF /* PEMSuperKoalio.png in Resources */ = {isa = PBXBuildFile; fileRef = 201F5D2E286C401200C435AF /* PEMSuperKoalio.png */; };
 		2037A5D628258C4900E13452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037A5D528258C4900E13452 /* AppDelegate.swift */; };
 		2037A5DE28258C4900E13452 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037A5DD28258C4900E13452 /* GameViewController.swift */; };
 		2037A5E128258C4900E13452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2037A5DF28258C4900E13452 /* Main.storyboard */; };
@@ -74,6 +77,7 @@
 		200250AB2861E53000C95330 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		200250AC2861E53000C95330 /* level1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1.mp3; sourceTree = "<group>"; };
 		2014E98328168E6100A12253 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		201F5D2E286C401200C435AF /* PEMSuperKoalio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEMSuperKoalio.png; sourceTree = "<group>"; };
 		2037A5D528258C4900E13452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2037A5DD28258C4900E13452 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2037A5E028258C4900E13452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 			children = (
 				200250A92861E53000C95330 /* Audio */,
 				206587DA286086EB00DED69C /* sprites.atlas */,
+				201F5D2E286C401200C435AF /* PEMSuperKoalio.png */,
 				209C7D222868416900D18649 /* replay.png */,
 				20AC2001283CFF5E00BE83F0 /* superkoalio.png */,
 				20AC1FFF283CFF5E00BE83F0 /* superkoalio.tmx */,
@@ -332,6 +337,7 @@
 				206587DD286086EB00DED69C /* sprites.atlas in Resources */,
 				20AC2007283CFF5E00BE83F0 /* tileSet.tsx in Resources */,
 				20AC2004283CFF5E00BE83F0 /* superkoalio.tmx in Resources */,
+				201F5D31286C401200C435AF /* PEMSuperKoalio.png in Resources */,
 				2037A5EA28258D9A00E13452 /* Assets.xcassets in Resources */,
 				200250AF2861E53000C95330 /* hurt.wav in Resources */,
 				2000FD46282BDB7400699DAF /* README.md in Resources */,
@@ -351,6 +357,7 @@
 				206587DB286086EB00DED69C /* sprites.atlas in Resources */,
 				207D3DC12812AD5700FC4C77 /* LaunchScreen.storyboard in Resources */,
 				20AC2005283CFF5E00BE83F0 /* tileSet.tsx in Resources */,
+				201F5D2F286C401200C435AF /* PEMSuperKoalio.png in Resources */,
 				20AC2002283CFF5E00BE83F0 /* superkoalio.tmx in Resources */,
 				200250AD2861E53000C95330 /* hurt.wav in Resources */,
 				207D3DD62812AD5700FC4C77 /* Assets.xcassets in Resources */,
@@ -369,6 +376,7 @@
 				207D3DCE2812AD5700FC4C77 /* Main.storyboard in Resources */,
 				20AC2003283CFF5E00BE83F0 /* superkoalio.tmx in Resources */,
 				2000FD45282BDB7400699DAF /* README.md in Resources */,
+				201F5D30286C401200C435AF /* PEMSuperKoalio.png in Resources */,
 				200250B42861E53000C95330 /* level1.mp3 in Resources */,
 				209C7D242868416900D18649 /* replay.png in Resources */,
 				20AC2006283CFF5E00BE83F0 /* tileSet.tsx in Resources */,
