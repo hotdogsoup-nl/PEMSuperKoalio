@@ -63,7 +63,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         camera = cameraNode
         addChild(cameraNode)
         
+        addLogo()
         loadMap()
+    }
+    
+    private func addLogo() {
+        let logo = SKSpriteNode(imageNamed: "PEMSuperKoalio")
+        logo.anchorPoint = CGPoint(x: 0, y: 1)
+        logo.position = CGPoint(x: size.width * -0.48, y: size.height * 0.48)
+        camera?.addChild(logo)
     }
     
     private func loadMap() {
