@@ -24,6 +24,9 @@
 		201F5D2F286C401200C435AF /* PEMSuperKoalio.png in Resources */ = {isa = PBXBuildFile; fileRef = 201F5D2E286C401200C435AF /* PEMSuperKoalio.png */; };
 		201F5D30286C401200C435AF /* PEMSuperKoalio.png in Resources */ = {isa = PBXBuildFile; fileRef = 201F5D2E286C401200C435AF /* PEMSuperKoalio.png */; };
 		201F5D31286C401200C435AF /* PEMSuperKoalio.png in Resources */ = {isa = PBXBuildFile; fileRef = 201F5D2E286C401200C435AF /* PEMSuperKoalio.png */; };
+		201F5D34286C470300C435AF /* PEMTileMap in Frameworks */ = {isa = PBXBuildFile; productRef = 201F5D33286C470300C435AF /* PEMTileMap */; };
+		201F5D37286C471D00C435AF /* PEMTileMap in Frameworks */ = {isa = PBXBuildFile; productRef = 201F5D36286C471D00C435AF /* PEMTileMap */; };
+		201F5D3A286C472500C435AF /* PEMTileMap in Frameworks */ = {isa = PBXBuildFile; productRef = 201F5D39286C472500C435AF /* PEMTileMap */; };
 		2037A5D628258C4900E13452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037A5D528258C4900E13452 /* AppDelegate.swift */; };
 		2037A5DE28258C4900E13452 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037A5DD28258C4900E13452 /* GameViewController.swift */; };
 		2037A5E128258C4900E13452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2037A5DF28258C4900E13452 /* Main.storyboard */; };
@@ -48,9 +51,6 @@
 		209C7D232868416900D18649 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = 209C7D222868416900D18649 /* replay.png */; };
 		209C7D242868416900D18649 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = 209C7D222868416900D18649 /* replay.png */; };
 		209C7D252868416900D18649 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = 209C7D222868416900D18649 /* replay.png */; };
-		20A71D9F283A137300100B1C /* PEMTileMap in Frameworks */ = {isa = PBXBuildFile; productRef = 20A71D9E283A137300100B1C /* PEMTileMap */; };
-		20A71DA1283A138800100B1C /* PEMTileMap in Frameworks */ = {isa = PBXBuildFile; productRef = 20A71DA0283A138800100B1C /* PEMTileMap */; };
-		20A71DA3283A138C00100B1C /* PEMTileMap in Frameworks */ = {isa = PBXBuildFile; productRef = 20A71DA2283A138C00100B1C /* PEMTileMap */; };
 		20AC2002283CFF5E00BE83F0 /* superkoalio.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 20AC1FFF283CFF5E00BE83F0 /* superkoalio.tmx */; };
 		20AC2003283CFF5E00BE83F0 /* superkoalio.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 20AC1FFF283CFF5E00BE83F0 /* superkoalio.tmx */; };
 		20AC2004283CFF5E00BE83F0 /* superkoalio.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 20AC1FFF283CFF5E00BE83F0 /* superkoalio.tmx */; };
@@ -105,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20A71DA3283A138C00100B1C /* PEMTileMap in Frameworks */,
+				201F5D3A286C472500C435AF /* PEMTileMap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20A71D9F283A137300100B1C /* PEMTileMap in Frameworks */,
+				201F5D34286C470300C435AF /* PEMTileMap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20A71DA1283A138800100B1C /* PEMTileMap in Frameworks */,
+				201F5D37286C471D00C435AF /* PEMTileMap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +236,7 @@
 			);
 			name = "tvOS version";
 			packageProductDependencies = (
-				20A71DA2283A138C00100B1C /* PEMTileMap */,
+				201F5D39286C472500C435AF /* PEMTileMap */,
 			);
 			productName = pemtmxdemo;
 			productReference = 200250A82861BDC100C95330 /* PEMSuperKoalio.app */;
@@ -256,7 +256,7 @@
 			);
 			name = "iOS version";
 			packageProductDependencies = (
-				20A71D9E283A137300100B1C /* PEMTileMap */,
+				201F5D33286C470300C435AF /* PEMTileMap */,
 			);
 			productName = "Dotty The Kangaroo iOS";
 			productReference = 200250A62861BDC100C95330 /* PEMSuperKoalio.app */;
@@ -276,7 +276,7 @@
 			);
 			name = "macOS version";
 			packageProductDependencies = (
-				20A71DA0283A138800100B1C /* PEMTileMap */,
+				201F5D36286C471D00C435AF /* PEMTileMap */,
 			);
 			productName = "Dotty The Kangaroo macOS";
 			productReference = 200250A72861BDC100C95330 /* PEMSuperKoalio.app */;
@@ -313,7 +313,9 @@
 			);
 			mainGroup = 207D3DA72812AD5600FC4C77;
 			packageReferences = (
-				20A71D9D283A137300100B1C /* XCRemoteSwiftPackageReference "pemtilemap" */,
+				201F5D32286C470300C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */,
+				201F5D35286C471D00C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */,
+				201F5D38286C472500C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */,
 			);
 			productRefGroup = 207D3DA72812AD5600FC4C77;
 			projectDirPath = "";
@@ -799,30 +801,46 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		20A71D9D283A137300100B1C /* XCRemoteSwiftPackageReference "pemtilemap" */ = {
+		201F5D32286C470300C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitlab.com/mrzystem/pemtilemap.git";
+			repositoryURL = "https://github.com/hotdogsoup-nl/PEMTileMap.git";
 			requirement = {
-				branch = develop;
+				branch = master;
+				kind = branch;
+			};
+		};
+		201F5D35286C471D00C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hotdogsoup-nl/PEMTileMap.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		201F5D38286C472500C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hotdogsoup-nl/PEMTileMap.git";
+			requirement = {
+				branch = master;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		20A71D9E283A137300100B1C /* PEMTileMap */ = {
+		201F5D33286C470300C435AF /* PEMTileMap */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 20A71D9D283A137300100B1C /* XCRemoteSwiftPackageReference "pemtilemap" */;
+			package = 201F5D32286C470300C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */;
 			productName = PEMTileMap;
 		};
-		20A71DA0283A138800100B1C /* PEMTileMap */ = {
+		201F5D36286C471D00C435AF /* PEMTileMap */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 20A71D9D283A137300100B1C /* XCRemoteSwiftPackageReference "pemtilemap" */;
+			package = 201F5D32286C470300C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */;
 			productName = PEMTileMap;
 		};
-		20A71DA2283A138C00100B1C /* PEMTileMap */ = {
+		201F5D39286C472500C435AF /* PEMTileMap */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 20A71D9D283A137300100B1C /* XCRemoteSwiftPackageReference "pemtilemap" */;
+			package = 201F5D32286C470300C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */;
 			productName = PEMTileMap;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -3,10 +3,10 @@
     {
       "identity" : "pemtilemap",
       "kind" : "remoteSourceControl",
-      "location" : "https://gitlab.com/mrzystem/pemtilemap.git",
+      "location" : "https://github.com/hotdogsoup-nl/PEMTileMap.git",
       "state" : {
-        "branch" : "develop",
-        "revision" : "4fd28e95af341b11885f7d5d98537b3b2624e160"
+        "branch" : "master",
+        "revision" : "bc54e60aa2f808fa321f2e525f9c18ba107adcb6"
       }
     }
   ],
