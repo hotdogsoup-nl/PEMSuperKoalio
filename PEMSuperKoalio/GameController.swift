@@ -29,8 +29,8 @@ public class GameController: NSObject, GameSceneDelegate {
     
     private func loadGameScene() {
         DispatchQueue.main.async { [unowned self] in            
-            let nextScene = GameScene(size: view!.bounds.size)
-            nextScene.scaleMode = .aspectFill            
+            let nextScene = GameScene(view:view!, size: view!.bounds.size)
+            nextScene.scaleMode = .aspectFill
             currentScene = nextScene
             currentScene?.gameSceneDelegate = self
 

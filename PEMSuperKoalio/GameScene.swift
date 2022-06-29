@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var gameSceneDelegate: GameSceneDelegate?
     
+    private weak var skView: SKView?
     private var map: PEMTileMap?
     private var cameraNode: SKCameraNode
     private var backgroundMusic: SKAudioNode
@@ -44,7 +45,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Init
     
-    override init(size: CGSize) {
+    init(view: SKView, size: CGSize) {
+        skView = view
+
         cameraNode = SKCameraNode()
         backgroundMusic = SKAudioNode(fileNamed: "level1.mp3")
         super.init(size: size)
@@ -75,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func loadMap() {
-        if let newMap = PEMTileMap(mapName: "superkoalio.tmx") {
+        if let newMap = PEMTileMap(mapName: "superkoalio.tmx", view: skView!) {
             map = newMap
 
             if newMap.backgroundColor != nil {
