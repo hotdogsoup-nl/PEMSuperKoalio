@@ -8,7 +8,7 @@
 
 **PEMSuperKoalio** is a Swift version of Ray Wenderlichs SpriteKit [SuperKoalio game][superkoalio-url]. It uses the [PEMTileMap][pemtilemap-url] framework to generate the game map and supports iOS, macOS and tvOS.
 
-The SuperKoalio demo project helped me to get into games programming. It was originally made in Objective-C with the `Cocos2D` framework and later a `SpriteKit` version ws made. I decided to make a Swift version that uses [PEMTileMap][pemtilemap-url] instead of `JSTileMap` for the map generation.
+The SuperKoalio demo project helped me to get into games programming. It was originally made in Objective-C with the `Cocos2D` framework and was later updated to use `SpriteKit`. I decided to make a Swift version that uses [PEMTileMap][pemtilemap-url] instead of `JSTileMap` for the map generation.
 
 <p align="center">
 <img src="Doc/screenshot_macos.png" height="450"/>
@@ -28,6 +28,11 @@ This project is intended as educational, expanding upon Ray Wenderlichs original
 - [X] input: touch screen control
 - [X] input: keyboard and mouse
 - [X] input: Apple TV remote controller
+  
+## How to build the app
+Download the repository and open the `PEMSuperKoalio` Xcode project. Build any of the iOS, macOS or tvOS targets. Depending on the platform choice, you may get a build error stating that a provisioning profile is required. In "Signing and Capabilities", make sure each target has either automatic signing enabled or select the correct provisioning profile.
+  
+If a build error occurs stating `Resource fork, Finder information, or similar detritus not allowed` there is an issue with image files in the project. Run `sudo xattr -cr *` on all image file folders in the project and clean the build folder to fix.
   
 ## License
 Based on Ray Wenderlichs SpriteKit SuperKoalio game tutorial by Jake Gunderson.
