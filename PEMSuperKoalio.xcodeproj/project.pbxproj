@@ -314,8 +314,6 @@
 			mainGroup = 207D3DA72812AD5600FC4C77;
 			packageReferences = (
 				201F5D32286C470300C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */,
-				201F5D35286C471D00C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */,
-				201F5D38286C472500C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */,
 			);
 			productRefGroup = 207D3DA72812AD5600FC4C77;
 			projectDirPath = "";
@@ -806,22 +804,6 @@
 
 /* Begin XCRemoteSwiftPackageReference section */
 		201F5D32286C470300C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hotdogsoup-nl/PEMTileMap.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		201F5D35286C471D00C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hotdogsoup-nl/PEMTileMap.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		201F5D38286C472500C435AF /* XCRemoteSwiftPackageReference "PEMTileMap" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hotdogsoup-nl/PEMTileMap.git";
 			requirement = {
