@@ -9,7 +9,7 @@ protocol GameSceneDelegate {
     func restartGame()
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene {
     private enum TileQueryPosition: Int {
         case aboveLeft = 0
         case above = 1
@@ -62,7 +62,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Control
 
     private func startControl() {
-        physicsWorld.contactDelegate = self
         camera = cameraNode
         addChild(cameraNode)
         
