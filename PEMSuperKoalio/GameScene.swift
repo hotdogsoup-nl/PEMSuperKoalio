@@ -164,6 +164,7 @@ class GameScene: SKScene {
                         player?.onGround = true
                     case .above:
                         player!.desiredPosition = CGPoint(x: player!.desiredPosition.x, y: player!.desiredPosition.y - intersection.size.height)
+                        player!.velocity = CGPoint(x: player!.velocity.x, y: 0.0)
                     case .toTheLeft:
                         player!.desiredPosition = CGPoint(x: player!.desiredPosition.x + intersection.size.width, y: player!.desiredPosition.y)
                     case .toTheRight:
@@ -172,15 +173,11 @@ class GameScene: SKScene {
                         if (intersection.size.width > intersection.size.height) {
                             //tile is diagonal, but resolving collision vertically
                             //4
-                            player?.velocity = CGPoint(x: player!.velocity.x, y: 0.0)
                             var intersectionHeight = CGFloat(0)
                             
-                            if tileQueryPosition == .toTheRight
-                                || tileQueryPosition == .belowLeft
-                                || tileQueryPosition == .below
-                                || tileQueryPosition == .belowRight {
-                            intersectionHeight = intersection.size.height
-                            player?.onGround = true
+                            if tileQueryPosition == .belowRight || tileQueryPosition == .aboveRight {
+                                intersectionHeight = intersection.size.height
+                                player?.onGround = true
                             } else {
                                 intersectionHeight = -intersection.size.height
                             }
@@ -189,8 +186,7 @@ class GameScene: SKScene {
                             //tile is diagonal, but resolving horizontally
                             var intersectionWidth = CGFloat(0)
                             
-                            if tileQueryPosition == .belowLeft
-                                || tileQueryPosition == .aboveLeft {
+                            if tileQueryPosition == .belowLeft || tileQueryPosition == .aboveLeft {
                                 intersectionWidth = intersection.size.width
                             } else {
                                 intersectionWidth = -intersection.size.width
