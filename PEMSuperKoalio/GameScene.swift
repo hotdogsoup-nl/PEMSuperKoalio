@@ -354,24 +354,7 @@ class GameScene: SKScene {
     // MARK: - Camera
     
     private func setViewpointCenter() {
-        if let playerPosition = player?.position {
-            var x = 0.0
-            var y = 0.0
-            
-            if (map!.mapSizeInPoints().width > size.width * cameraNode.xScale) {
-                x = max(playerPosition.x, size.width * 0.5 * cameraNode.xScale)
-                x = min(x, map!.mapSizeInPoints().width - size.width * 0.5 * cameraNode.xScale)
-                x += map!.mapSizeInPoints().width * -0.5
-            }
-            
-            if (map!.mapSizeInPoints().height > size.height * cameraNode.xScale) {
-                y = max(playerPosition.y, size.height * 0.5 * cameraNode.yScale)
-                y = min(y, map!.mapSizeInPoints().height - size.height * 0.5 * cameraNode.yScale)
-                y += map!.mapSizeInPoints().height * -0.5
-            }
-                        
-            cameraNode.position = CGPoint(x: x, y: y)
-        }
+        map!.moveCamera(toPoint: player!.position, sceneSize: size, duration: 0)
     }
 }
 
